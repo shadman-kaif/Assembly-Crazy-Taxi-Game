@@ -1,43 +1,68 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   car_drawing.c
- * Author: Shadman
- *
- * Created on March 29, 2020, 8:39 PM
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
+//Initial Function Declarations
 volatile int pixel_buffer_start; //Global Variable
-
-void swap(int *x, int *y);
 void clear_screen();
-void plot_pixel(int x, int y, short int line_color);
 void draw_line(int x0, int y0, int x1, int y1, short int color);
-
-int main(void) {
-    volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
-    /* Read location of the pixel buffer from the pixel buffer controller */
-    pixel_buffer_start = *pixel_ctrl_ptr;
-
-    clear_screen();
-
-    printf("CRAZY TAXI 2020\n");
-    return 0;
-}
+void plot_pixel(int x, int y, short int line_color);
+void wait_for_vsync();
 
 //Used to swap the values of x and y when requires in draw_line function
 void swap(int *x, int *y){
-    int temp = *x;
+	int temp = *x;
     *x = *y;
     *y = temp;   
+}
+
+
+int main(void){
+	volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
+	/* Read location of the pixel buffer from the pixel buffer controller */
+	pixel_buffer_start = *pixel_ctrl_ptr;
+
+	clear_screen();
+
+	int x0 = 60;
+    int x1 = 60;
+    int y0 = 0;
+    int y1 = 40;
+
+    int yIncrement = 1;
+
+    while (1) {
+        draw_line (x0, y0, x1, y1, 0xFFFF); //This line is white
+        wait_for_vsync();
+        draw_line(x0, y0, x1, y1, 0x0000);
+
+        if (y0 == 0){
+            yIncrement = 1;
+        }
+
+        else if (y1 == 239){
+            yIncrement = -1;
+        }
+
+        y0 = y0 + yIncrement;
+        y1 = y1 + yIncrement;
+    } 
+	return 0;
+}
+
+void wait_for_vsync(){
+    volatile int* pixel_ctrl_ptr = (int*)0xFF203020;
+    volatile int* status = (int*)0xFF20302C;
+
+    *pixel_ctrl_ptr = 1;
+
+    //Keep reading the status until Status S = 1
+    while ((*status & 0x01) != 0){
+        status = status;
+    }
+
+    //Exit when Status S is 1
+    return;
 }
 
 void clear_screen() {
@@ -47,10 +72,6 @@ void clear_screen() {
 			plot_pixel(x, y, 0x0000);
 		}
 	}
-}
-
-void plot_pixel(int x, int y, short int line_color){
-	*(short int*)(pixel_buffer_start + (y << 10) + (x << 1)) = line_color;
 }
 
 void draw_line(int x0, int y0, int x1, int y1, short int color){
@@ -104,4 +125,8 @@ void draw_line(int x0, int y0, int x1, int y1, short int color){
 			error = error - deltax;
 		}
 	}
+}
+
+void plot_pixel(int x, int y, short int line_color){
+	*(short int*)(pixel_buffer_start + (y << 10) + (x << 1)) = line_color;
 }
