@@ -4,6 +4,7 @@
 
 //Initial Function Declarations
 volatile int pixel_buffer_start; //Global Variable
+volatile char* character_buffer = (char*) 0xC9000000; //Character buffer
 void clear_screen();
 void draw_line(int x0, int y0, int x1, int y1, short int color);
 void plot_pixel(int x, int y, short int line_color);
