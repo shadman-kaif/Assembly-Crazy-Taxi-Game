@@ -4,11 +4,9 @@
 
 //Initial Function Declarations
 volatile int pixel_buffer_start; //Global Variable
-volatile char* character_buffer = (char*) 0xC9000000; //Character buffer
 void clear_screen();
 void draw_line(int x0, int y0, int x1, int y1, short int color);
 void plot_pixel(int x, int y, short int line_color);
-void wait_for_vsync();
 
 //Used to swap the values of x and y when requires in draw_line function
 void swap(int *x, int *y){
@@ -17,7 +15,6 @@ void swap(int *x, int *y){
     *y = temp;   
 }
 
-
 int main(void){
 	volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
 	/* Read location of the pixel buffer from the pixel buffer controller */
@@ -25,45 +22,33 @@ int main(void){
 
 	clear_screen();
 
-	int x0 = 60;
-    int x1 = 60;
-    int y0 = 0;
-    int y1 = 40;
+	background();
 
-    int yIncrement = 1;
-
-    while (1) {
-        draw_line (x0, y0, x1, y1, 0xFFFF); //This line is white
-        wait_for_vsync();
-        draw_line(x0, y0, x1, y1, 0x0000);
-
-        if (y0 == 0){
-            yIncrement = 1;
-        }
-
-        else if (y1 == 239){
-            yIncrement = -1;
-        }
-
-        y0 = y0 + yIncrement;
-        y1 = y1 + yIncrement;
-    } 
 	return 0;
 }
 
-void wait_for_vsync(){
-    volatile int* pixel_ctrl_ptr = (int*)0xFF203020;
-    volatile int* status = (int*)0xFF20302C;
+void background(){
+	// First pair of dotted lines
+	draw_line(52, 48, 52, 96, 0xFFFF);
+	draw_line(52, 144, 52, 192, 0xFFFF);
 
-    *pixel_ctrl_ptr = 1;
+	// First big lane
+	draw_line(103, 0, 103, 239, 0xFFFF);
+	draw_line(104, 0, 104, 239, 0xFFFF);
+	
+	// Second pair of dotted lines
+	draw_line(156, 48, 156, 96, 0xFFFF);
+	draw_line(156, 144, 156, 192, 0xFFFF);
 
-    //Keep reading the status until Status S = 1
-    while ((*status & 0x01) != 0){
-        status = status;
-    }
-
-    //Exit when Status S is 1
-    return;
+	// Second big lane
+	draw_line(209, 0, 209, 239, 0xFFFF);
+	draw_line(210, 0, 210, 239, 0xFFFF);
+	
+	// Second pair of dotted lines
+	draw_line(262, 48, 262, 96, 0xFFFF);
+	draw_line(262, 144, 262, 192, 0xFFFF);
+	
+	
 }
 
 void clear_screen() {
