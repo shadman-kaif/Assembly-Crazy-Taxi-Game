@@ -7,6 +7,7 @@ volatile int pixel_buffer_start; //Global Variable
 void clear_screen();
 void draw_line(int x0, int y0, int x1, int y1, short int color);
 void plot_pixel(int x, int y, short int line_color);
+void background();
 
 void disable_A9_interrupts(void);
 void set_A9_IRQ_stack(void);
@@ -34,6 +35,7 @@ void pushbutton_ISR(void) {
 	*(KEY_ptr + 3) = press; // Clear the interrupt
 	if (press & 0x1) { // KEY0
 		clear_screen();
+		background();
 	}
 	else if (press & 0x2) { //KEY1
 
@@ -63,6 +65,31 @@ int main(void){
 	while (1); // wait for an interrupt
 	
 	return 0;
+}
+
+// Draws the background
+void background(){
+	// First pair of dotted lines
+	draw_line(52, 48, 52, 96, 0xFFFF);
+	draw_line(52, 144, 52, 192, 0xFFFF);
+
+	// First big lane
+	draw_line(103, 0, 103, 239, 0xFFFF);
+	draw_line(104, 0, 104, 239, 0xFFFF);
+	
+	// Second pair of dotted lines
+	draw_line(156, 48, 156, 96, 0xFFFF);
+	draw_line(156, 144, 156, 192, 0xFFFF);
+
+	// Second big lane
+	draw_line(209, 0, 209, 239, 0xFFFF);
+	draw_line(210, 0, 210, 239, 0xFFFF);
+	
+	// Third pair of dotted lines
+	draw_line(262, 48, 262, 96, 0xFFFF);
+	draw_line(262, 144, 262, 192, 0xFFFF);
+	
+	
 }
 
 // Series of strings that are displayed at the start screen
