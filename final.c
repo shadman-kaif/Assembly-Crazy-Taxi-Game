@@ -31,6 +31,9 @@ short int WHITE = 0xFFFFFF;
 short int BLUE = 0x0055FF;
 short int ROAD_GREY = 0x1FA244;
 
+// Create global booleans
+bool key0Press;
+
 /********************************************************************
 * Pushbutton - Interrupt Service Routine
 *
@@ -40,12 +43,51 @@ void pushbutton_ISR(void) {
 	/* KEY base address */
 	volatile int * KEY_ptr = (int *) 0xFF200050;
 	int press;
+	int x, y;
 	press = *(KEY_ptr + 3); // read the pushbutton interrupt register
 	*(KEY_ptr + 3) = press; // Clear the interrupt
+	
 	if (press & 0x1) { // KEY0
 		clear_screen();
-		background();
+		
+		int x0 = 52, x1 = 52, y0 = 48, y1 =96;
+		int y0_second = 144, y1_second = 192;
+		int yIncrement = 1;
+		
+		while(1){
+			// First pair of dotted lines
+			draw_line (x0, y0, x1, y1, 0xFFFF); 
+			draw_line (x0, y0_second, x1, y1_second, 0xFFFF);
+			
+			wait_for_vsync();
+			draw_line(x0, y0, x1, y1, 0x0000);
+			draw_line(x0, y0_second, x1, y1_second, 0x0000);
+			background();
+			draw_taxi(x+140,y+175);
+			
+        	if (y0 == 0){
+            	yIncrement = 1;
+        	}
+
+       		else if (y1 == 239){
+            	yIncrement = -1;
+        	}
+			
+			else if (y0_second == 0){
+            	yIncrement = 1;
+        	}
+			
+			else if (y1_second == 239){
+            	yIncrement = -1;
+        	}
+
+        	y0 += yIncrement;
+			y0_second += yIncrement;
+        	y1 += yIncrement;
+			y1_second += yIncrement;
+		}
 	}
+	
 	else if (press & 0x2) { //KEY1
 
 	}
@@ -73,14 +115,15 @@ int main(void){
 	enable_A9_interrupts(); // enable interrupts in the A9 processor
 	while (1); // wait for an interrupt
 	
+	wait_for_vsync();
+	
 	return 0;
 }
 
 // Draws the background
 void background(){
 	// First pair of dotted lines
-	draw_line(52, 48, 52, 96, 0xFFFF);
-	draw_line(52, 144, 52, 192, 0xFFFF);
+
 
 	// First big lane
 	draw_line(103, 0, 103, 239, 0xFFFF);
