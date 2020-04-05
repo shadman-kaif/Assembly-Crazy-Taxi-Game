@@ -448,7 +448,7 @@ int main(void){
         draw_background();
 
         // draws taxi and car
-        draw_taxi(x,y);
+        draw_taxi(x+140,y+155);
         draw_car(x+50,y+50, WHITE);
 
         // moves down and right to see if all pixels are blessed
