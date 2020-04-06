@@ -62,7 +62,6 @@ void pushbutton_ISR(void) {
 	return;
 }
 
-
 int main(void){
 	volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
 	/* Read location of the pixel buffer from the pixel buffer controller */
@@ -698,5 +697,3 @@ void config_interrupt(int N, int CPU_target) {
 	* appropriate byte */
 	*(char *)address = (char)CPU_target;
 }
-	
-	
