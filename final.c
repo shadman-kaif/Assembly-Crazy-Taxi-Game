@@ -82,7 +82,8 @@ int main(void){
 	}
 		clear_screen();
 		
-		int x0 = 52, x1 = 52, y0 = 48, y1 =96;
+		
+		int x0 = 52, x1 = 52, y0 = 48, y1 = 96;
 		int y0_second = 144, y1_second = 192;
 		int x0_second = 156, x1_second = 156;
 		int x0_third = 262, x1_third = 262;
@@ -117,10 +118,6 @@ int main(void){
         	if (y0 == 0){
             	yIncrement = 1;
         	}
-
-       		else if (y1 == 239){
-            	yIncrement = -1;
-        	}
 			
 			else if (y0_second == 0){
             	yIncrement = 1;
@@ -142,16 +139,16 @@ int main(void){
 // Draws the background
 void background(){
 	// First pair of dotted lines
-	// draw_line(52, 48, 52, 96, 0xFFFF);
-	// draw_line(52, 144, 52, 192, 0xFFFF);
+	//draw_line(52, 48, 52, 96, 0xFFFF);
+	//draw_line(52, 144, 52, 192, 0xFFFF);
 
 	// First big lane
 	draw_line(103, 0, 103, 239, 0xFFFF);
 	draw_line(104, 0, 104, 239, 0xFFFF);
 	
 	// Second pair of dotted lines
-	// draw_line(156, 48, 156, 96, 0xFFFF);
-	// draw_line(156, 144, 156, 192, 0xFFFF);
+	//draw_line(156, 48, 156, 96, 0xFFFF);
+	//draw_line(156, 144, 156, 192, 0xFFFF);
 
 	// Second big lane
 	draw_line(209, 0, 209, 239, 0xFFFF);
