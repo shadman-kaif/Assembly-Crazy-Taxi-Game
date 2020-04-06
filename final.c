@@ -32,7 +32,7 @@ short int BLUE = 0x0055FF;
 short int ROAD_GREY = 0x1FA244;
 
 // Create global booleans
-bool key0Press;
+volatile bool key0Press = false;
 
 /********************************************************************
 * Pushbutton - Interrupt Service Routine
@@ -43,49 +43,11 @@ void pushbutton_ISR(void) {
 	/* KEY base address */
 	volatile int * KEY_ptr = (int *) 0xFF200050;
 	int press;
-	int x, y;
 	press = *(KEY_ptr + 3); // read the pushbutton interrupt register
 	*(KEY_ptr + 3) = press; // Clear the interrupt
 	
 	if (press & 0x1) { // KEY0
-		clear_screen();
-		
-		int x0 = 52, x1 = 52, y0 = 48, y1 =96;
-		int y0_second = 144, y1_second = 192;
-		int yIncrement = 1;
-		
-		while(1){
-			// First pair of dotted lines
-			draw_line (x0, y0, x1, y1, 0xFFFF); 
-			draw_line (x0, y0_second, x1, y1_second, 0xFFFF);
-			
-			wait_for_vsync();
-			draw_line(x0, y0, x1, y1, 0x0000);
-			draw_line(x0, y0_second, x1, y1_second, 0x0000);
-			background();
-			draw_taxi(x+140,y+175);
-			
-        	if (y0 == 0){
-            	yIncrement = 1;
-        	}
-
-       		else if (y1 == 239){
-            	yIncrement = -1;
-        	}
-			
-			else if (y0_second == 0){
-            	yIncrement = 1;
-        	}
-			
-			else if (y1_second == 239){
-            	yIncrement = -1;
-        	}
-
-        	y0 += yIncrement;
-			y0_second += yIncrement;
-        	y1 += yIncrement;
-			y1_second += yIncrement;
-		}
+		key0Press = true;
 	}
 	
 	else if (press & 0x2) { //KEY1
@@ -113,9 +75,66 @@ int main(void){
 	config_GIC(); // configure the general interrupt controller
 	config_KEYs(); // configure pushbutton KEYs to generate interrupts
 	enable_A9_interrupts(); // enable interrupts in the A9 processor
-	while (1); // wait for an interrupt
-	
-	wait_for_vsync();
+	//while (1); // you're never gonna leave this.
+
+	while (!key0Press) {
+		; // poll until user presses key 0 
+	}
+		clear_screen();
+		
+		int x0 = 52, x1 = 52, y0 = 48, y1 =96;
+		int y0_second = 144, y1_second = 192;
+		int x0_second = 156, x1_second = 156;
+		int x0_third = 262, x1_third = 262;
+		int yIncrement = 1;
+		int x, y;
+		
+		while(1){
+			
+			// First pair of dotted lines
+			draw_line (x0, y0, x1, y1, 0xFFFF); 
+			draw_line (x0, y0_second, x1, y1_second, 0xFFFF);
+			
+			// Second pair of dotted lines
+			draw_line (x0_second, y0, x1_second, y1, 0xFFFF);
+			draw_line (x0_second, y0_second, x1_second, y1_second, 0xFFFF);
+			
+			// Third pair of dotted lines
+			draw_line (x0_third, y0, x1_third, y1, 0xFFFF);
+			draw_line (x0_third, y0_second, x1_third, y1_second, 0xFFFF);
+			
+			wait_for_vsync();
+			draw_line(x0, y0, x1, y1, 0x0000);
+			draw_line(x0, y0_second, x1, y1_second, 0x0000);
+			draw_line(x0_second, y0, x1_second, y1, 0x0000);
+			draw_line (x0_second, y0_second, x1_second, y1_second, 0x0000);
+			draw_line (x0_third, y0, x1_third, y1, 0x0000);
+			draw_line (x0_third, y0_second, x1_third, y1_second, 0x0000);
+			
+			background();
+			draw_taxi(x+140,y+175);
+			
+        	if (y0 == 0){
+            	yIncrement = 1;
+        	}
+
+       		else if (y1 == 239){
+            	yIncrement = -1;
+        	}
+			
+			else if (y0_second == 0){
+            	yIncrement = 1;
+        	}
+			
+			else if (y1_second == 239){
+            	yIncrement = -1;
+        	}
+
+        	y0 += yIncrement;
+			y0_second += yIncrement;
+        	y1 += yIncrement;
+			y1_second += yIncrement;
+		}
 	
 	return 0;
 }
@@ -123,29 +142,30 @@ int main(void){
 // Draws the background
 void background(){
 	// First pair of dotted lines
-
+	// draw_line(52, 48, 52, 96, 0xFFFF);
+	// draw_line(52, 144, 52, 192, 0xFFFF);
 
 	// First big lane
 	draw_line(103, 0, 103, 239, 0xFFFF);
 	draw_line(104, 0, 104, 239, 0xFFFF);
 	
 	// Second pair of dotted lines
-	draw_line(156, 48, 156, 96, 0xFFFF);
-	draw_line(156, 144, 156, 192, 0xFFFF);
+	// draw_line(156, 48, 156, 96, 0xFFFF);
+	// draw_line(156, 144, 156, 192, 0xFFFF);
 
 	// Second big lane
 	draw_line(209, 0, 209, 239, 0xFFFF);
 	draw_line(210, 0, 210, 239, 0xFFFF);
 	
 	// Third pair of dotted lines
-	draw_line(262, 48, 262, 96, 0xFFFF);
-	draw_line(262, 144, 262, 192, 0xFFFF);
+	//draw_line(262, 48, 262, 96, 0xFFFF);
+	//draw_line(262, 144, 262, 192, 0xFFFF);
 }
 
 
 void draw_taxi(int x, int y) {
 
-    //draws yellow base
+    // draws yellow base
     draw_box(x+8, y+3, 17, 41, YELLOW);
     draw_box(x+6, y+5, 2, 37, YELLOW);
     draw_box(x+4, y+7, 2, 33, YELLOW);
@@ -359,7 +379,6 @@ void draw_car(int x, int y, short int colour) {
     draw_horizontal_line(x+11, x+21, y+37, BLUE);
     draw_box(x+10, y+35, 13, 2, BLUE);
 
-
     // draw back window outline
     draw_horizontal_line(x+8, x+24, y+33, BLACK);
     draw_horizontal_line(x+10, x+22, y+38, BLACK);
@@ -398,7 +417,7 @@ void start_message(){
 	 third_string++;
    }
 	
-   char* fourth_string = "A = Left, D = Right";
+   char* fourth_string = "KEY2 = Left, KEY1 = Right";
    x = 153;
    while (*fourth_string) {
      write_char(x, 28, *fourth_string);
@@ -420,6 +439,14 @@ void start_message(){
      write_char(x, 32, *sixth_string);
 	 x++;
 	 sixth_string++;
+   }
+	
+   char* seventh_string = "Remember to set breakpoint at EXIT";
+   x = 153;
+   while (*seventh_string) {
+     write_char(x, 34, *seventh_string);
+	 x++;
+	 seventh_string++;
    }
 }
 
@@ -674,3 +701,5 @@ void config_interrupt(int N, int CPU_target) {
 	* appropriate byte */
 	*(char *)address = (char)CPU_target;
 }
+	
+	
