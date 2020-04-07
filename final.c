@@ -74,11 +74,13 @@ short int ROAD_GREY = 0x1FA244;
 
 // Create global booleans
 volatile bool key0Press = false;
+volatile bool carMoveRight = false;
+volatile bool carMoveLeft = false;
 
 /********************************************************************
 * Pushbutton - Interrupt Service Routine
 *
-* This routine checks which KEY has been pressed. It writes to HEX0
+* This routine checks which KEY has been pressed. 
 *******************************************************************/
 void pushbutton_ISR(void) {
     /* KEY base address */
@@ -92,10 +94,10 @@ void pushbutton_ISR(void) {
     }
     
     else if (press & 0x2) { //KEY1
-
+		carMoveRight = true;
     }
     else if (press & 0x4) { //KEY2
-
+		carMoveLeft = true;
     }
     else { //KEY3
 
@@ -141,10 +143,6 @@ int main(void){
 
         // start off with the top coming down
         bool top = true;
-
-
-
-
         
         while(1){
             
@@ -156,6 +154,8 @@ int main(void){
 
                 // draw the top line growing gradually and the bottom two lines
                 top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+                // draw taxi
+                draw_taxi(x,y);
             }
 
             // if top == false
@@ -163,6 +163,8 @@ int main(void){
 
                 // draw the top two full lines and the bottom line getting smaller
                 bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+                // draw taxi
+                draw_taxi(x,y);
             }
 
             // wait for screen to refresh
@@ -173,6 +175,7 @@ int main(void){
 
                 // erases the top line growing gradually and the bottom two lines
                 top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
 
                 // increases the starting positions of the bottom two lines
                 y2 = y2 + 1;
@@ -198,6 +201,7 @@ int main(void){
                 y2 = y2 + 1;
                 y3 = y3 + 1;
 
+
                 // once the bottom line disappears, restart by drawing the top line
                 if (y1 == 48) {
                     top = true;
@@ -206,12 +210,80 @@ int main(void){
                     y3 = 144;
                     firstlength = 0;
                 }
-
             }
+			
+			
+			
+			// When KEY1 is pressed
+			while (carMoveRight) {
+				            
+            	// draw backgrond
+            	background();
 
-            // draw taxi
-            draw_taxi(x,y);
+            	// if top == true
+            	if (top) {
 
+                	// draw the top line growing gradually and the bottom two lines
+                	top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+                	// draw taxi
+                	draw_taxi(x,y);
+            	}
+
+            	// if top == false
+            	else {
+
+                	// draw the top two full lines and the bottom line getting smaller
+                	bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+                	// draw taxi
+                	draw_taxi(x,y);
+            	}
+
+            	// wait for screen to refresh
+            	wait_for_vsync();
+
+            	// if top == true
+            	if (top) {
+
+                	// erases the top line growing gradually and the bottom two lines
+                	top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
+
+                	// increases the starting positions of the bottom two lines
+                	y2 = y2 + 1;
+                	y3 = y3 + 1;
+
+                	// increases the length of the first line for it to grow
+                	firstlength = firstlength + 1;
+
+                	// once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
+                	if (y2 == 96) {
+                    	top = false;
+                	} 
+            	}
+
+            	// if top == false
+            	else {
+
+                	// erases the top full lines and the bottom line getting smaller
+                	bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
+
+                	// increases the position of the lanes to move down
+                	y1 = y1 + 1;
+                	y2 = y2 + 1;
+                	y3 = y3 + 1;
+
+
+                	// once the bottom line disappears, restart by drawing the top line
+                	if (y1 == 48) {
+                    	top = true;
+                    	y1 = 0;
+                    	y2 = 48;
+                    	y3 = 144;
+                    	firstlength = 0;
+                	}
+            	}
+				draw_line(0,20,319,20,0x01FF);
+			}
         }
     
     return 0;
@@ -242,6 +314,7 @@ void background(){
 
 
 void draw_taxi(int x, int y) {
+
 
     // draws yellow base
     draw_box(x+8, y+3, 17, 41, YELLOW);
