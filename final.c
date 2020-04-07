@@ -123,6 +123,9 @@ int main(void){
     while (!key0Press) {
         ; // poll until user presses key 0 
     }
+		/********************************************************************
+		* KEY0 has been pressed
+		*******************************************************************/
         clear_screen();
         
         // sets initial variables for the lanes
@@ -135,7 +138,6 @@ int main(void){
 
         // sets length for the first line while it moves down
         int firstlength = 0;
-
 
         // sets inital position for the taxi
         int x = 140;
@@ -212,9 +214,9 @@ int main(void){
                 }
             }
 			
-			
-			
-			// When KEY1 is pressed
+			/********************************************************************
+			* KEY1 has been pressed
+			*******************************************************************/
 			while (carMoveRight) {
 				            
             	// draw backgrond
