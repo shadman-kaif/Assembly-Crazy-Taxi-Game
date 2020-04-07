@@ -16,6 +16,47 @@ void draw_box(int x, int y, int width, int length, short int color);
 void plot_pixel(int x, int y, short int line_color);
 void draw_car(int x, int y, short int colour);
 void draw_taxi(int x, int y);
+void top_coming(int x1, int x2, int x3, int firsty, int secondy, int thirdy, int firstlength, short int colour);
+void bottom_disappearing(int x1, int x2, int x3, int firsty, int secondy, int thirdy, short int colour);
+
+void top_coming(int x1, int x2, int x3, int firsty, int secondy, int thirdy, int firstlength, short int colour) {
+
+    // draw lanes on left
+
+    draw_vertical_line(x1, 0, firstlength, colour);
+    draw_vertical_line(x1, secondy, secondy+48, colour);
+    draw_vertical_line(x1, thirdy, thirdy+48, colour);
+        
+    // draw lanes in middle
+    draw_vertical_line(x2, 0, firstlength, colour);
+    draw_vertical_line(x2, secondy, secondy+48, colour);
+    draw_vertical_line(x2, thirdy, thirdy+48, colour);
+
+    // draw lanes on left
+    draw_vertical_line(x3, 0, firstlength, colour);
+    draw_vertical_line(x3, secondy, secondy+48, colour);
+    draw_vertical_line(x3, thirdy, thirdy+48, colour);
+
+}
+
+void bottom_disappearing(int x1, int x2, int x3, int firsty, int secondy, int thirdy, short int colour) {
+
+    // draw lanes on left
+    draw_vertical_line(x1, firsty, firsty+48, colour);
+    draw_vertical_line(x1, secondy, secondy+48, colour);
+    draw_vertical_line(x1, thirdy, 240, colour);
+    
+    // draw lanes in middle
+    draw_vertical_line(x2, firsty, firsty+48, colour);
+    draw_vertical_line(x2, secondy, secondy+48, colour);
+    draw_vertical_line(x2, thirdy, 240, colour);
+
+    // draw lanes on left
+    draw_vertical_line(x3, firsty, firsty+48, colour);
+    draw_vertical_line(x3, secondy, secondy+48, colour);
+    draw_vertical_line(x3, thirdy, 240, colour);
+
+}
 
 // Interrupt functions
 void disable_A9_interrupts(void);
@@ -40,122 +81,163 @@ volatile bool key0Press = false;
 * This routine checks which KEY has been pressed. It writes to HEX0
 *******************************************************************/
 void pushbutton_ISR(void) {
-	/* KEY base address */
-	volatile int * KEY_ptr = (int *) 0xFF200050;
-	int press;
-	press = *(KEY_ptr + 3); // read the pushbutton interrupt register
-	*(KEY_ptr + 3) = press; // Clear the interrupt
-	
-	if (press & 0x1) { // KEY0
-		key0Press = true;
-	}
-	
-	else if (press & 0x2) { //KEY1
+    /* KEY base address */
+    volatile int * KEY_ptr = (int *) 0xFF200050;
+    int press;
+    press = *(KEY_ptr + 3); // read the pushbutton interrupt register
+    *(KEY_ptr + 3) = press; // Clear the interrupt
+    
+    if (press & 0x1) { // KEY0
+        key0Press = true;
+    }
+    
+    else if (press & 0x2) { //KEY1
 
-	}
-	else if (press & 0x4) { //KEY2
+    }
+    else if (press & 0x4) { //KEY2
 
-	}
-	else { //KEY3
+    }
+    else { //KEY3
 
-	}
-	return;
+    }
+    return;
 }
 
+
 int main(void){
-	volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
-	/* Read location of the pixel buffer from the pixel buffer controller */
-	pixel_buffer_start = *pixel_ctrl_ptr;
-	clear_screen();
-	start_message();
-	
-	disable_A9_interrupts(); // disable interrupts in the A9 processor
-	set_A9_IRQ_stack(); // initialize the stack pointer for IRQ mode
-	config_GIC(); // configure the general interrupt controller
-	config_KEYs(); // configure pushbutton KEYs to generate interrupts
-	enable_A9_interrupts(); // enable interrupts in the A9 processor
-	//while (1); // you're never gonna leave this.
+    volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
+    /* Read location of the pixel buffer from the pixel buffer controller */
+    pixel_buffer_start = *pixel_ctrl_ptr;
+    clear_screen();
+    start_message();
+    
+    disable_A9_interrupts(); // disable interrupts in the A9 processor
+    set_A9_IRQ_stack(); // initialize the stack pointer for IRQ mode
+    config_GIC(); // configure the general interrupt controller
+    config_KEYs(); // configure pushbutton KEYs to generate interrupts
+    enable_A9_interrupts(); // enable interrupts in the A9 processor
+    //while (1); // you're never gonna leave this.
 
-	while (!key0Press) {
-		; // poll until user presses key 0 
-	}
-		clear_screen();
-		
-		
-		int x0 = 52, x1 = 52, y0 = 48, y1 = 96;
-		int y0_second = 144, y1_second = 192;
-		int x0_second = 156, x1_second = 156;
-		int x0_third = 262, x1_third = 262;
-		int yIncrement = 1;
-		int x, y;
-		
-		while(1){
-			
-			// First pair of dotted lines
-			draw_line (x0, y0, x1, y1, 0xFFFF); 
-			draw_line (x0, y0_second, x1, y1_second, 0xFFFF);
-			
-			// Second pair of dotted lines
-			draw_line (x0_second, y0, x1_second, y1, 0xFFFF);
-			draw_line (x0_second, y0_second, x1_second, y1_second, 0xFFFF);
-			
-			// Third pair of dotted lines
-			draw_line (x0_third, y0, x1_third, y1, 0xFFFF);
-			draw_line (x0_third, y0_second, x1_third, y1_second, 0xFFFF);
-			
-			wait_for_vsync();
-			draw_line(x0, y0, x1, y1, 0x0000);
-			draw_line(x0, y0_second, x1, y1_second, 0x0000);
-			draw_line(x0_second, y0, x1_second, y1, 0x0000);
-			draw_line (x0_second, y0_second, x1_second, y1_second, 0x0000);
-			draw_line (x0_third, y0, x1_third, y1, 0x0000);
-			draw_line (x0_third, y0_second, x1_third, y1_second, 0x0000);
-			
-			background();
-			draw_taxi(x+140,y+175);
-			
-        	if (y0 == 0){
-            	yIncrement = 1;
-        	}
-			
-			else if (y0_second == 0){
-            	yIncrement = 1;
-        	}
-			
-			else if (y1_second == 239){
-            	yIncrement = -1;
-        	}
+    while (!key0Press) {
+        ; // poll until user presses key 0 
+    }
+        clear_screen();
+        
+        // sets initial variables for the lanes
+        int x1 = 52;
+        int x2 = 156;
+        int x3 = 262;
+        int y1 = 0;
+        int y2 = 48;
+        int y3 = 144;
 
-        	y0 += yIncrement;
-			y0_second += yIncrement;
-        	y1 += yIncrement;
-			y1_second += yIncrement;
-		}
-	
-	return 0;
+        // sets length for the first line while it moves down
+        int firstlength = 0;
+
+
+        // sets inital position for the taxi
+        int x = 140;
+        int y = 175;
+
+        // start off with the top coming down
+        bool top = true;
+
+
+
+
+        
+        while(1){
+            
+            // draw backgrond
+            background();
+
+            // if top == true
+            if (top) {
+
+                // draw the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+            }
+
+            // if top == false
+            else {
+
+                // draw the top two full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+            }
+
+            // wait for screen to refresh
+            wait_for_vsync();
+
+            // if top == true
+            if (top) {
+
+                // erases the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
+                // increases the starting positions of the bottom two lines
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+                // increases the length of the first line for it to grow
+                firstlength = firstlength + 1;
+
+                // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
+                if (y2 == 96) {
+                    top = false;
+                } 
+            }
+
+            // if top == false
+            else {
+
+                // erases the top full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
+
+                // increases the position of the lanes to move down
+                y1 = y1 + 1;
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+                // once the bottom line disappears, restart by drawing the top line
+                if (y1 == 48) {
+                    top = true;
+                    y1 = 0;
+                    y2 = 48;
+                    y3 = 144;
+                    firstlength = 0;
+                }
+
+            }
+
+            // draw taxi
+            draw_taxi(x,y);
+
+        }
+    
+    return 0;
 }
 
 // Draws the background
 void background(){
-	// First pair of dotted lines
-	//draw_line(52, 48, 52, 96, 0xFFFF);
-	//draw_line(52, 144, 52, 192, 0xFFFF);
+    // First pair of dotted lines
+    //draw_line(52, 48, 52, 96, 0xFFFF);
+    //draw_line(52, 144, 52, 192, 0xFFFF);
 
-	// First big lane
-	draw_line(103, 0, 103, 239, 0xFFFF);
-	draw_line(104, 0, 104, 239, 0xFFFF);
-	
-	// Second pair of dotted lines
-	//draw_line(156, 48, 156, 96, 0xFFFF);
-	//draw_line(156, 144, 156, 192, 0xFFFF);
+    // First big lane
+    draw_line(103, 0, 103, 239, 0xFFFF);
+    draw_line(104, 0, 104, 239, 0xFFFF);
+    
+    // Second pair of dotted lines
+    //draw_line(156, 48, 156, 96, 0xFFFF);
+    //draw_line(156, 144, 156, 192, 0xFFFF);
 
-	// Second big lane
-	draw_line(209, 0, 209, 239, 0xFFFF);
-	draw_line(210, 0, 210, 239, 0xFFFF);
-	
-	// Third pair of dotted lines
-	//draw_line(262, 48, 262, 96, 0xFFFF);
-	//draw_line(262, 144, 262, 192, 0xFFFF);
+    // Second big lane
+    draw_line(209, 0, 209, 239, 0xFFFF);
+    draw_line(210, 0, 210, 239, 0xFFFF);
+    
+    // Third pair of dotted lines
+    //draw_line(262, 48, 262, 96, 0xFFFF);
+    //draw_line(262, 144, 262, 192, 0xFFFF);
 }
 
 
@@ -393,62 +475,62 @@ void start_message(){
    int x = 153;
    while (*first_string) {
      write_char(x, 20, *first_string);
-	 x++;
-	 first_string++;
+     x++;
+     first_string++;
    }
-	
+    
    char* second_string = "Created by: Shadman and Abdurrafay";
    x = 153;
    while (*second_string) {
      write_char(x, 22, *second_string);
-	 x++;
-	 second_string++;
+     x++;
+     second_string++;
    }
-	
+    
    char* third_string = "Winter 2020 ECE243";
    x = 153;
    while (*third_string) {
      write_char(x, 24, *third_string);
-	 x++;
-	 third_string++;
+     x++;
+     third_string++;
    }
-	
+    
    char* fourth_string = "KEY2 = Left, KEY1 = Right";
    x = 153;
    while (*fourth_string) {
      write_char(x, 28, *fourth_string);
-	 x++;
-	 fourth_string++;
+     x++;
+     fourth_string++;
    }
-	
+    
    char* fifth_string = "Space to Stop";
    x = 153;
    while (*fifth_string) {
      write_char(x, 30, *fifth_string);
-	 x++;
-	 fifth_string++;
+     x++;
+     fifth_string++;
    }
-	
+    
    char* sixth_string = "Press KEY0 to Continue...";
    x = 153;
    while (*sixth_string) {
      write_char(x, 32, *sixth_string);
-	 x++;
-	 sixth_string++;
+     x++;
+     sixth_string++;
    }
-	
+    
    char* seventh_string = "Remember to set breakpoint at EXIT";
    x = 153;
    while (*seventh_string) {
      write_char(x, 34, *seventh_string);
-	 x++;
-	 seventh_string++;
+     x++;
+     seventh_string++;
    }
 }
 
 //Used to swap the values of x and y when requires in draw_line function
 void swap(int *x, int *y){
-	int temp = *x;
+    int temp = *x;
     *x = *y;
     *y = temp;   
 }
@@ -462,18 +544,18 @@ void write_char(int x, int y, char c) {
 
 // Clears the character and pixel buffer on the screen
 void clear_screen() {
-	int x, y;
-	for (x = 0; x < 320; x++){
-		for (y = 0; y < 240; y++){
-			plot_pixel(x, y, 0x0000);
-		}
-	}
-	
-	for (x = 0; x < 80; x++){
-		for (y = 0; y < 60; y++){
-			write_char(x, y, ' ');
-		}
-	}
+    int x, y;
+    for (x = 0; x < 320; x++){
+        for (y = 0; y < 240; y++){
+            plot_pixel(x, y, 0x0000);
+        }
+    }
+    
+    for (x = 0; x < 80; x++){
+        for (y = 0; y < 60; y++){
+            write_char(x, y, ' ');
+        }
+    }
 }
 
 // function to sync entire screen
@@ -512,7 +594,7 @@ void draw_vertical_line(int x, int y0, int y1, short int colour){
 
 
 void plot_pixel(int x, int y, short int line_color){
-	*(short int*)(pixel_buffer_start + (y << 10) + (x << 1)) = line_color;
+    *(short int*)(pixel_buffer_start + (y << 10) + (x << 1)) = line_color;
 }
 
 // Draw a box at (x,y) location
@@ -523,62 +605,62 @@ void draw_box(int x, int y, int width, int length, short int color){
 }   
 
 void draw_line(int x0, int y0, int x1, int y1, short int color){
-	bool is_steep = abs(y1 - y0) > abs(x1 - x0);
+    bool is_steep = abs(y1 - y0) > abs(x1 - x0);
 
-	if (is_steep){
-		swap(&x0, &y0);
-		swap(&x1, &y1);
-	}
+    if (is_steep){
+        swap(&x0, &y0);
+        swap(&x1, &y1);
+    }
 
-	if (x0 > x1){
-		swap(&x0, &x1);
-		swap(&y0, &y1);
-	}
+    if (x0 > x1){
+        swap(&x0, &x1);
+        swap(&y0, &y1);
+    }
 
-	int deltax = x1 - x0;
-	int deltay = y1 - y0;
+    int deltax = x1 - x0;
+    int deltay = y1 - y0;
 
-	if (deltay < 0){
-		deltay = -deltay;
-	}
+    if (deltay < 0){
+        deltay = -deltay;
+    }
 
-	//The error variable takes into account the relative difference between 
-	//the width (deltax) and height of the line (deltay) in deciding how often y 
-	//should beincremented. 
-	int error = -(deltax / 2);
+    //The error variable takes into account the relative difference between 
+    //the width (deltax) and height of the line (deltay) in deciding how often y 
+    //should beincremented. 
+    int error = -(deltax / 2);
 
-	int y = y0;
-	int y_step;
+    int y = y0;
+    int y_step;
 
-	if (y0 < y1){
-		y_step = 1;
-	}
+    if (y0 < y1){
+        y_step = 1;
+    }
 
-	else{
-		y_step = -1;
-	}
+    else{
+        y_step = -1;
+    }
 
-	for (int x = x0; x <= x1; x++){
-		if (is_steep){
-			plot_pixel(y, x, color);
-		}
-		else{
-			plot_pixel(x, y, color);
-		}
+    for (int x = x0; x <= x1; x++){
+        if (is_steep){
+            plot_pixel(y, x, color);
+        }
+        else{
+            plot_pixel(x, y, color);
+        }
 
-		error = error + deltay;
+        error = error + deltay;
 
-		if (error >= 0){
-			y = y + y_step;
-			error = error - deltax;
-		}
-	}
+        if (error >= 0){
+            y = y + y_step;
+            error = error - deltax;
+        }
+    }
 }
 
 /* setup the KEY interrupts in the FPGA */
 void config_KEYs() {
-	volatile int * KEY_ptr = (int *) 0xFF200050; // pushbutton KEY base address
-	*(KEY_ptr + 2) = 0xF; // enable interrupts for the two KEYs
+    volatile int * KEY_ptr = (int *) 0xFF200050; // pushbutton KEY base address
+    *(KEY_ptr + 2) = 0xF; // enable interrupts for the two KEYs
 }
 
 void pushbutton_ISR(void);
@@ -587,88 +669,88 @@ void config_interrupt(int, int);
 // Define the IRQ exception handler
 void __attribute__((interrupt)) __cs3_isr_irq(void) {
 
-	// Read the ICCIAR from the CPU Interface in the GIC
-	int interrupt_ID = *((int *)0xFFFEC10C);
+    // Read the ICCIAR from the CPU Interface in the GIC
+    int interrupt_ID = *((int *)0xFFFEC10C);
 
-	if (interrupt_ID == 73) // check if interrupt is from the KEYs
-	pushbutton_ISR();
-		else {
-	while (1); // if unexpected, then stay here
-	}
-			
-	// Write to the End of Interrupt Register (ICCEOIR)
-	*((int *)0xFFFEC110) = interrupt_ID;
+    if (interrupt_ID == 73) // check if interrupt is from the KEYs
+    pushbutton_ISR();
+        else {
+    while (1); // if unexpected, then stay here
+    }
+            
+    // Write to the End of Interrupt Register (ICCEOIR)
+    *((int *)0xFFFEC110) = interrupt_ID;
 }
 
 // Define the remaining exception handlers
 void __attribute__((interrupt)) __cs3_reset(void) {
-	while (1);
+    while (1);
 }
 
 void __attribute__((interrupt)) __cs3_isr_undef(void) {
-	while (1);
+    while (1);
 }
 
 void __attribute__((interrupt)) __cs3_isr_swi(void) {
-	while (1);
+    while (1);
 }
 
 void __attribute__((interrupt)) __cs3_isr_pabort(void) {
-	while (1);
+    while (1);
 }
 
 void __attribute__((interrupt)) __cs3_isr_dabort(void) {
-	while (1);
+    while (1);
 }
 
 void __attribute__((interrupt)) __cs3_isr_fiq(void) {
-	while (1);
+    while (1);
 }
 
 /*
 * Turn off interrupts in the ARM processor
 */
 void disable_A9_interrupts(void) {
-	int status = 0b11010011;
-	asm("msr cpsr, %[ps]" : : [ps] "r"(status));
+    int status = 0b11010011;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(status));
 }
 
 /*
 * Initialize the banked stack pointer register for IRQ mode
 */
 void set_A9_IRQ_stack(void) {
-	int stack, mode;
-	stack = 0xFFFFFFFF - 7; // top of A9 onchip memory, aligned to 8 bytes
-	/* change processor to IRQ mode with interrupts disabled */
-	mode = 0b11010010;
-	asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
-	/* set banked stack pointer */
-	asm("mov sp, %[ps]" : : [ps] "r"(stack));
-		/* go back to SVC mode before executing subroutine return! */
-	mode = 0b11010011;
-	asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
+    int stack, mode;
+    stack = 0xFFFFFFFF - 7; // top of A9 onchip memory, aligned to 8 bytes
+    /* change processor to IRQ mode with interrupts disabled */
+    mode = 0b11010010;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
+    /* set banked stack pointer */
+    asm("mov sp, %[ps]" : : [ps] "r"(stack));
+        /* go back to SVC mode before executing subroutine return! */
+    mode = 0b11010011;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
 }
 
 /*
 * Turn on interrupts in the ARM processor
 */
 void enable_A9_interrupts(void) {
-	int status = 0b01010011;
-	asm("msr cpsr, %[ps]" : : [ps] "r"(status));
+    int status = 0b01010011;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(status));
 }
 
 /*
 * Configure the Generic Interrupt Controller (GIC)
 */
 void config_GIC(void) {
-	config_interrupt (73, 1); // configure the FPGA KEYs interrupt (73)
-	// Set Interrupt Priority Mask Register (ICCPMR). Enable interrupts of all
-	// priorities
-	*((int *) 0xFFFEC104) = 0xFFFF;
-	// Set CPU Interface Control Register (ICCICR). Enable signaling of interrupts
-	*((int *) 0xFFFEC100) = 1;
-	// Configure the Distributor Control Register (ICDDCR) to send pending interrupts to CPUs
-	*((int *) 0xFFFED000) = 1;
+    config_interrupt (73, 1); // configure the FPGA KEYs interrupt (73)
+    // Set Interrupt Priority Mask Register (ICCPMR). Enable interrupts of all
+    // priorities
+    *((int *) 0xFFFEC104) = 0xFFFF;
+    // Set CPU Interface Control Register (ICCICR). Enable signaling of interrupts
+    *((int *) 0xFFFEC100) = 1;
+    // Configure the Distributor Control Register (ICDDCR) to send pending interrupts to CPUs
+    *((int *) 0xFFFED000) = 1;
 }
 
 /*
@@ -677,23 +759,23 @@ void config_GIC(void) {
 * in the GIC.
 */
 void config_interrupt(int N, int CPU_target) {
-	int reg_offset, index, value, address;
-	/* Configure the Interrupt Set-Enable Registers (ICDISERn).
-	* reg_offset = (integer_div(N / 32) * 4
-	* value = 1 << (N mod 32) */
-	reg_offset = (N >> 3) & 0xFFFFFFFC;
-	index = N & 0x1F;
-	value = 0x1 << index;
-	address = 0xFFFED100 + reg_offset;
-	/* Now that we know the register address and value, set the appropriate bit */
-	*(int *)address |= value;
-	/* Configure the Interrupt Processor Targets Register (ICDIPTRn)
-	* reg_offset = integer_div(N / 4) * 4
-	* index = N mod 4 */
-	reg_offset = (N & 0xFFFFFFFC);
-	index = N & 0x3;
-	address = 0xFFFED800 + reg_offset + index;
-	/* Now that we know the register address and value, write to (only) the
-	* appropriate byte */
-	*(char *)address = (char)CPU_target;
+    int reg_offset, index, value, address;
+    /* Configure the Interrupt Set-Enable Registers (ICDISERn).
+    * reg_offset = (integer_div(N / 32) * 4
+    * value = 1 << (N mod 32) */
+    reg_offset = (N >> 3) & 0xFFFFFFFC;
+    index = N & 0x1F;
+    value = 0x1 << index;
+    address = 0xFFFED100 + reg_offset;
+    /* Now that we know the register address and value, set the appropriate bit */
+    *(int *)address |= value;
+    /* Configure the Interrupt Processor Targets Register (ICDIPTRn)
+    * reg_offset = integer_div(N / 4) * 4
+    * index = N mod 4 */
+    reg_offset = (N & 0xFFFFFFFC);
+    index = N & 0x3;
+    address = 0xFFFED800 + reg_offset + index;
+    /* Now that we know the register address and value, write to (only) the
+    * appropriate byte */
+    *(char *)address = (char)CPU_target;
 }
