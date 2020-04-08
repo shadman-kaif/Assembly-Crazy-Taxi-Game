@@ -43,7 +43,8 @@ void enable_A9_interrupts(void);
 volatile bool key0Press = false;
 volatile bool carMoveRight = false;
 volatile bool carMoveLeft = false;
-
+volatile bool restart = false;
+volatile bool gameOver = false;
 
 int main(void){
     volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
@@ -78,10 +79,12 @@ int main(void){
     int b = potentialStartingPositions[digit2];
     int c = potentialStartingPositions[digit3];
 
-
     while (!key0Press) {
         ; // poll until user presses key 0 
     }
+	
+	key0Press = false;
+	
         clear_screen();
         
         // sets initial variables for the lanes
@@ -96,7 +99,7 @@ int main(void){
         int firstlength = 0;
 
         // sets inital position for the taxi
-        int x = 250;
+        int x = 10;
         int y = 175;
 
         // start off with the top coming down
@@ -112,12 +115,65 @@ int main(void){
 
             if (checkForCrash) {
 
-                // I PUT A WHITE BOX WHEN CRASH IS DETECTED
-                // YOU CAN JUST BREAK AND THEN HAVE WIN SCREEN OUTSIDE
-                // OR DRAW IN HERE OR CALL FUNCTION TO DO IT
-                draw_box(0,0,150,150,WHITE);
-                break;
-            }
+                // Clear the screen
+                clear_screen();
+				
+				// Print first lose statement
+				char* first_lose_string = "Sorry, you lose!";
+   				int x_pos = 155;
+   				while (*first_lose_string) {
+     				write_char(x_pos, 24, *first_lose_string);
+     				x_pos++;
+     				first_lose_string++;
+   				}
+				
+				// Print second lose statement
+				char* second_lose_string = "Thank you for playing";
+   				int x_pos2 = 155;
+   				while (*second_lose_string) {
+     				write_char(x_pos2, 26, *second_lose_string);
+     				x_pos2++;
+     				second_lose_string++;
+   				}
+				
+				// Print third lose statement
+				char* third_lose_string = "Press KEY0 to restart the game";
+   				int x_pos3 = 155;
+   				while (*third_lose_string) {
+     				write_char(x_pos3, 28, *third_lose_string);
+     				x_pos3++;
+     				third_lose_string++;
+				}	
+				
+				while (!key0Press) {
+					;
+				} //poll
+				
+				checkForCrash = false;
+				
+				key0Press = false;
+				background();
+				draw_line(0, 20, 319, 20, 0x01FF);
+        
+        // sets initial variables for the lanes
+        int x1 = 52;
+        int x2 = 156;
+        int x3 = 262;
+        int y1 = 0;
+        int y2 = 48;
+        int y3 = 144;
+
+        // sets length for the first line while it moves down
+        int firstlength = 0;
+
+        // sets inital position for the taxi
+        int x = 10;
+        int y = 175;
+
+        // start off with the top coming down
+        bool top = true;
+        int count = 0;
+            }	
 
             // if top == true
             if (top) {
@@ -319,7 +375,6 @@ int main(void){
                     // wait for screen to refresh
                     wait_for_vsync();
 
-
                     // if top == true
                     if (top) {
 
@@ -494,8 +549,7 @@ int main(void){
                     carMoveLeft = false;
                 }
             }
-        }
-    
+        } 
     return 0;
 }
 
@@ -525,7 +579,7 @@ void pushbutton_ISR(void) {
     }
     
     else { //KEY3
-
+		restart = true;
     }
     
     return;
