@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 // Initial Function Declarations
 volatile int pixel_buffer_start; //Global Variable
@@ -82,8 +83,10 @@ int main(void){
     while (!key0Press) {
         ; // poll until user presses key 0 
     }
-	
-	key0Press = false;
+    
+        key0Press = false;
+    	
+		int final_score = 0;
 	
         clear_screen();
         
@@ -115,65 +118,87 @@ int main(void){
 
             if (checkForCrash) {
 
+                checkForCrash = false;
+
                 // Clear the screen
                 clear_screen();
+                
+                // Print first lose statement
+                char* first_lose_string = "Sorry, you lose!";
+                int x_pos = 155;
+                while (*first_lose_string) {
+                    write_char(x_pos, 24, *first_lose_string);
+                    x_pos++;
+                    first_lose_string++;
+                }
+                
+                // Print second lose statement
+                char* second_lose_string = "Thank you for playing";
+                int x_pos2 = 155;
+                while (*second_lose_string) {
+                    write_char(x_pos2, 26, *second_lose_string);
+                    x_pos2++;
+                    second_lose_string++;
+                }
+                
+                // Print third lose statement
+                char* third_lose_string = "Press KEY0 to restart the game";
+                int x_pos3 = 155;
+                while (*third_lose_string) {
+                    write_char(x_pos3, 28, *third_lose_string);
+                    x_pos3++;
+                    third_lose_string++;
+                }   
 				
-				// Print first lose statement
-				char* first_lose_string = "Sorry, you lose!";
-   				int x_pos = 155;
-   				while (*first_lose_string) {
-     				write_char(x_pos, 24, *first_lose_string);
-     				x_pos++;
-     				first_lose_string++;
-   				}
+				// Print fourth lose statement
+				char* fourth_lose_string = "Your score is: ";
+				int x_pos5 = 155;
+                while (*fourth_lose_string) {
+                    write_char(x_pos5, 30, *fourth_lose_string);
+                    x_pos5++;
+                    fourth_lose_string++;
+                }   
 				
-				// Print second lose statement
-				char* second_lose_string = "Thank you for playing";
-   				int x_pos2 = 155;
-   				while (*second_lose_string) {
-     				write_char(x_pos2, 26, *second_lose_string);
-     				x_pos2++;
-     				second_lose_string++;
-   				}
-				
-				// Print third lose statement
-				char* third_lose_string = "Press KEY0 to restart the game";
-   				int x_pos3 = 155;
-   				while (*third_lose_string) {
-     				write_char(x_pos3, 28, *third_lose_string);
-     				x_pos3++;
-     				third_lose_string++;
-				}	
-				
-				while (!key0Press) {
-					;
-				} //poll
-				
-				checkForCrash = false;
-				
-				key0Press = false;
-				background();
-				draw_line(0, 20, 319, 20, 0x01FF);
+				// Print fourth lose statement
+				char* score;
+				sprintf(score, "%d", final_score);
+				int x_pos4 = 170;
+                while (*score) {
+                    write_char(x_pos4, 30, *score);
+                    x_pos4++;
+                    score++;
+                }   
+                
+                while (!key0Press) {
+                    ;
+                } //poll
+                
+                key0Press = false;
+
         
-        // sets initial variables for the lanes
-        int x1 = 52;
-        int x2 = 156;
-        int x3 = 262;
-        int y1 = 0;
-        int y2 = 48;
-        int y3 = 144;
+                // sets initial variables for the lanes
+                x1 = 52;
+                x2 = 156;
+                x3 = 262;
+                y1 = 0;
+                y2 = 48;
+                y3 = 144;
 
-        // sets length for the first line while it moves down
-        int firstlength = 0;
+                // sets length for the first line while it moves down
+                firstlength = 0;
 
-        // sets inital position for the taxi
-        int x = 10;
-        int y = 175;
+                // sets inital position for the taxi
+                x = 10;
+                y = 175;
 
-        // start off with the top coming down
-        bool top = true;
-        int count = 0;
-            }	
+                // start off with the top coming down
+                top = true;
+                count = 0;
+				
+				clear_screen();
+				final_score = 0;
+                background();
+            }   
 
             // if top == true
             if (top) {
@@ -187,6 +212,7 @@ int main(void){
                 draw_new_car(b, RED, count);
                 draw_new_car(c, ROAD_GREY, count);
                 count = count + 1;
+				final_score += 1;
 
                 if (count == 290) {
 
@@ -221,7 +247,7 @@ int main(void){
                 draw_new_car(a, WHITE, count);
                 draw_new_car(b, RED, count);
                 draw_new_car(c, ROAD_GREY, count);
-                
+                final_score += 1;
                 count = count + 1;
 
                 if (count == 290) {
@@ -311,7 +337,8 @@ int main(void){
                         draw_new_car(b, RED, count);
                         draw_new_car(c, ROAD_GREY, count);
                         count = count + 1;
-
+						final_score += 1;
+						
                         if (count == 290) {
 
                             // restart cars from top
@@ -349,9 +376,9 @@ int main(void){
                         draw_new_car(c, ROAD_GREY, count);
                         
                         count = count + 1;
-
+						final_score += 1;
                         if (count == 290) {
-                            
+                        
                             // restart cars from top
                             count = 0;
 
@@ -440,7 +467,8 @@ int main(void){
                         draw_new_car(b, RED, count);
                         draw_new_car(c, ROAD_GREY, count);
                         count = count + 1;
-
+						final_score += 1;
+						
                         if (count == 290) {
                             
                             // restart cars from top
@@ -475,7 +503,7 @@ int main(void){
                         draw_new_car(a, WHITE, count);
                         draw_new_car(b, RED, count);
                         draw_new_car(c, ROAD_GREY, count);
-                        
+                        final_score += 1;
                         count = count + 1;
 
                         if (count == 290) {
@@ -579,7 +607,7 @@ void pushbutton_ISR(void) {
     }
     
     else { //KEY3
-		restart = true;
+        restart = true;
     }
     
     return;
