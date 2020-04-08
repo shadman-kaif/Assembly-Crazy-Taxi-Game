@@ -18,6 +18,10377 @@ void draw_car(int x, int y, short int colour);
 void draw_taxi(int x, int y);
 void top_coming(int x1, int x2, int x3, int firsty, int secondy, int thirdy, int firstlength, short int colour);
 void bottom_disappearing(int x1, int x2, int x3, int firsty, int secondy, int thirdy, short int colour);
+void draw_new_car(int x, short int colour, int count);
+
+// colours - green for points, pink for lines
+short int BLACK = 0x00000; 
+short int YELLOW = 0xFFF700;
+short int WHITE = 0xFFFFFF;
+short int BLUE = 0x0055FF;
+short int ROAD_GREY = 0x1FA244;
+
+
+void draw_new_car(int x, short int colour, int count) {
+
+    if (count == 0) {
+
+    }
+
+    else if (count == 1) {
+        
+    }
+
+    else if (count == 2) {
+                // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+    }
+
+    else if (count == 3) {
+                // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+    }
+
+    else if (count == 4) {
+                // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+    }
+
+    else if (count == 5) {
+                // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+    }
+
+    else if (count == 6) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+    }
+
+    else if (count == 7) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+    }
+
+    else if (count == 8) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+    }
+
+    else if (count == 9) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+    }
+
+    else if (count == 10) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+    }
+
+    else if (count == 11) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+    }
+
+    else if (count == 12) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+    }
+
+    else if (count == 13) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+    }
+
+    else if (count == 14) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+    }
+
+    else if (count == 15) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+    }
+
+    else if (count == 16) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+    }
+
+    else if (count == 17) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+    }
+
+    else if (count == 18) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+    }
+
+    else if (count == 19) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+    }
+
+    else if (count == 20) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+    }
+
+    else if (count == 21) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+    }
+
+    else if (count == 22) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+    }
+
+    else if (count == 23) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+    }
+
+    else if (count == 24) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+    }
+
+    else if (count == 25) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+    }
+
+    else if (count == 26) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+    }
+
+    else if (count == 27) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+    }
+
+    else if (count == 28) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+    }
+
+    else if (count == 29) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+    }
+
+    else if (count == 30) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+    }
+
+    else if (count == 31) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+    }
+
+    else if (count == 32) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+    }
+
+    else if (count == 33) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+    }
+
+    else if (count == 34) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+    }
+
+    else if (count == 35) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+    }
+
+    else if (count == 36) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+    }
+
+    else if (count == 37) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+    }
+
+    else if (count == 38) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+    }
+
+    else if (count == 39) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+    }
+
+    else if (count == 40) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+    }
+
+    else if (count == 41) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+    }
+
+    else if (count == 42) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+    }
+
+    else if (count == 43) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+    }
+
+    else if (count == 44) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 45) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count > 45 && count < 241) {
+        // row 2
+        draw_horizontal_line(x+7, x+25, count-1, BLACK);
+
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 241) {
+        // row 3
+        draw_horizontal_line(x+7, x+25, count-2, BLACK);
+        draw_horizontal_line(x+8, x+8, count-2, WHITE);
+        draw_horizontal_line(x+10, x+12, count-2, colour);
+        draw_horizontal_line(x+14, x+18, count-2, BLUE);
+        draw_horizontal_line(x+20, x+22, count-2, colour);
+        draw_horizontal_line(x+24, x+24, count-2, WHITE);
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 242) {
+
+        // row 4
+        draw_horizontal_line(x+5, x+27, count-3, BLACK);
+        draw_horizontal_line(x+8, x+8, count-3, WHITE);
+        draw_horizontal_line(x+24, x+24, count-3, WHITE);
+        draw_horizontal_line(x+10, x+12, count-3, colour);
+        draw_horizontal_line(x+20, x+22, count-3, colour);
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 243) {
+
+
+        // row 5
+        draw_horizontal_line(x+5, x+27, count-4, BLACK);
+        draw_horizontal_line(x+6, x+8, count-4, WHITE);
+        draw_horizontal_line(x+24, x+26, count-4, WHITE);
+        draw_horizontal_line(x+10, x+22, count-4, colour);
+
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 244) {
+        // row 6
+        draw_horizontal_line(x+3, x+29, count-5, BLACK);
+        draw_horizontal_line(x+10, x+22, count-5, colour);
+
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 245) {
+        // row 7
+        draw_horizontal_line(x+3, x+29, count-6, BLACK);
+        draw_horizontal_line(x+4, x+11, count-6, colour);
+        draw_horizontal_line(x+21, x+28, count-6, colour);
+
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 246) {
+        // row 8
+        draw_horizontal_line(x+3, x+29, count-7, BLACK);
+        draw_horizontal_line(x+4, x+9, count-7, colour);
+        draw_horizontal_line(x+13, x+19, count-7, BLUE);
+        draw_horizontal_line(x+23, x+28, count-7, colour);
+
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 247) {
+        // row 9
+        draw_horizontal_line(x+3, x+29, count-8, BLACK);
+        draw_horizontal_line(x+4, x+7, count-8, colour);
+        draw_horizontal_line(x+11, x+21, count-8, BLUE);
+        draw_horizontal_line(x+25, x+28, count-8, colour);
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 248) {
+
+        // row 10
+        draw_horizontal_line(x+3, x+29, count-9, BLACK);
+        draw_horizontal_line(x+4, x+7, count-9, colour);
+        draw_horizontal_line(x+25, x+28, count-9, colour);
+        draw_horizontal_line(x+9, x+23, count-9, BLUE);
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 249) {
+
+        // row 11
+        draw_horizontal_line(x+2, x+30, count-10, BLACK);
+        draw_horizontal_line(x+4, x+7, count-10, colour);
+        draw_horizontal_line(x+25, x+28, count-10, colour);
+        draw_horizontal_line(x+9, x+23, count-10, BLUE);
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 250) {
+
+        // row 12
+        draw_horizontal_line(x+2, x+30, count-11, BLACK);
+        draw_horizontal_line(x+4, x+7, count-11, colour);
+        draw_horizontal_line(x+25, x+28, count-11, colour);
+        draw_horizontal_line(x+9, x+23, count-11, BLUE);
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 251) {
+
+        // row 13
+        draw_horizontal_line(x+2, x+30, count-12, BLACK);
+        draw_horizontal_line(x+4, x+7, count-12, colour);
+        draw_horizontal_line(x+25, x+28, count-12, colour);
+        draw_horizontal_line(x+9, x+23, count-12, BLUE);
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 252) {
+
+        // row 14
+        draw_horizontal_line(x+2, x+30, count-13, BLACK);
+        draw_horizontal_line(x+4, x+7, count-13, colour);
+        draw_horizontal_line(x+25, x+28, count-13, colour);
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 253) {
+
+        // row 15
+        draw_horizontal_line(x+2, x+30, count-14, BLACK);
+        draw_horizontal_line(x+4, x+28, count-14, colour);
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 254) {
+
+        // row 16
+        draw_horizontal_line(x+2, x+30, count-15, BLACK);
+        draw_horizontal_line(x+4, x+28, count-15, colour);
+
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 255) {
+        
+        // row 17
+        draw_horizontal_line(x+2, x+30, count-16, BLACK);
+        draw_horizontal_line(x+6, x+26, count-16, colour);
+
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 256) {
+        
+        // row 18
+        draw_horizontal_line(x+3, x+29, count-17, BLACK);
+        draw_horizontal_line(x+4, x+4, count-17, BLUE);
+        draw_horizontal_line(x+28, x+28, count-17, BLUE);
+        draw_horizontal_line(x+6, x+26, count-17, colour);
+
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 257) {
+        
+        // row 19
+        draw_horizontal_line(x+3, x+29, count-18, BLACK);
+        draw_horizontal_line(x+4, x+4, count-18, BLUE);
+        draw_horizontal_line(x+28, x+28, count-18, BLUE);
+        draw_horizontal_line(x+6, x+26, count-18, colour);
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 258) {
+
+        // row 20
+        draw_horizontal_line(x+3, x+29, count-19, BLACK);
+        draw_horizontal_line(x+4, x+4, count-19, BLUE);
+        draw_horizontal_line(x+28, x+28, count-19, BLUE);
+        draw_horizontal_line(x+6, x+26, count-19, colour);
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 259) {
+
+        // row 21
+        draw_horizontal_line(x+3, x+29, count-20, BLACK);
+        draw_horizontal_line(x+4, x+4, count-20, BLUE);
+        draw_horizontal_line(x+28, x+28, count-20, BLUE);
+        draw_horizontal_line(x+6, x+26, count-20, colour);
+
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 260) {
+        
+        // row 22
+        draw_horizontal_line(x+3, x+29, count-21, BLACK);
+        draw_horizontal_line(x+4, x+4, count-21, BLUE);
+        draw_horizontal_line(x+28, x+28, count-21, BLUE);
+        draw_horizontal_line(x+6, x+26, count-21, colour);
+
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 261) {
+        
+        // row 23
+        draw_horizontal_line(x+3, x+29, count-22, BLACK);
+        draw_horizontal_line(x+4, x+4, count-22, BLUE);
+        draw_horizontal_line(x+28, x+28, count-22, BLUE);
+        draw_horizontal_line(x+6, x+26, count-22, colour);
+
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 262) {
+        
+        // row 24
+        draw_horizontal_line(x+3, x+29, count-23, BLACK);
+        draw_horizontal_line(x+4, x+4, count-23, BLUE);
+        draw_horizontal_line(x+28, x+28, count-23, BLUE);
+        draw_horizontal_line(x+6, x+26, count-23, colour);
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 263) {
+
+        // row 25
+        draw_horizontal_line(x+3, x+29, count-24, BLACK);
+        draw_horizontal_line(x+4, x+4, count-24, BLUE);
+        draw_horizontal_line(x+28, x+28, count-24, BLUE);
+        draw_horizontal_line(x+6, x+26, count-24, colour);
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 264) {
+
+        // row 26
+        draw_horizontal_line(x+3, x+29, count-25, BLACK);
+        draw_horizontal_line(x+4, x+4, count-25, BLUE);
+        draw_horizontal_line(x+28, x+28, count-25, BLUE);
+        draw_horizontal_line(x+6, x+26, count-25, colour);
+
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 265) {
+        
+        // row 27
+        draw_horizontal_line(x+3, x+29, count-26, BLACK);
+        draw_horizontal_line(x+4, x+4, count-26, BLUE);
+        draw_horizontal_line(x+28, x+28, count-26, BLUE);
+        draw_horizontal_line(x+6, x+26, count-26, colour);
+
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 266) {
+        
+        // row 28
+        draw_horizontal_line(x+3, x+29, count-27, BLACK);
+        draw_horizontal_line(x+6, x+26, count-27, colour);
+
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 267) {
+        
+        // row 29
+        draw_horizontal_line(x+3, x+29, count-28, BLACK);
+        draw_horizontal_line(x+4, x+28, count-28, colour);
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 268) {
+
+        // row 30
+        draw_horizontal_line(x+2, x+30, count-29, BLACK);
+        draw_horizontal_line(x+4, x+28, count-29, colour);
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 269) {
+
+        // row 31
+        draw_horizontal_line(x+2, x+30, count-30, BLACK);
+        draw_horizontal_line(x+4, x+28, count-30, colour);
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 270) {
+
+        // row 32
+        draw_horizontal_line(x+2, x+30, count-31, BLACK);
+        draw_horizontal_line(x+4, x+28, count-31, colour);
+
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 271) {
+        
+        // row 33
+        draw_horizontal_line(x+2, x+30, count-32, BLACK);
+        draw_horizontal_line(x+4, x+7, count-32, colour);
+        draw_horizontal_line(x+25, x+28, count-32, colour);
+
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 272) {
+        
+        // row 34
+        draw_horizontal_line(x+2, x+30, count-33, BLACK);
+        draw_horizontal_line(x+4, x+7, count-33, colour);
+        draw_horizontal_line(x+25, x+28, count-33, colour);
+        draw_horizontal_line(x+9, x+23, count-33, BLUE);
+
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 273) {
+        
+        // row 35
+        draw_horizontal_line(x+2, x+30, count-34, BLACK);
+        draw_horizontal_line(x+4, x+7, count-34, colour);
+        draw_horizontal_line(x+25, x+28, count-34, colour);
+        draw_horizontal_line(x+10, x+22, count-34, BLUE);
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 274) {
+
+        // row 36
+        draw_horizontal_line(x+2, x+30, count-35, BLACK);
+        draw_horizontal_line(x+4, x+8, count-35, colour);
+        draw_horizontal_line(x+24, x+28, count-35, colour);
+        draw_horizontal_line(x+10, x+22, count-35, BLUE);
+
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 275) {
+        
+        // row 37
+        draw_horizontal_line(x+3, x+29, count-36, BLACK);
+        draw_horizontal_line(x+4, x+8, count-36, colour);
+        draw_horizontal_line(x+24, x+28, count-36, colour);
+        draw_horizontal_line(x+11, x+21, count-36, BLUE);
+
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 276) {
+        
+        // row 38
+        draw_horizontal_line(x+3, x+29, count-37, BLACK);
+        draw_horizontal_line(x+4, x+9, count-37, colour);
+        draw_horizontal_line(x+23, x+28, count-37, colour);
+
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 277) {
+        
+        // row 39
+        draw_horizontal_line(x+3, x+29, count-38, BLACK);
+        draw_horizontal_line(x+4, x+28, count-38, colour);
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 278) {
+
+        // row 40
+        draw_horizontal_line(x+3, x+29, count-39, BLACK);
+        draw_horizontal_line(x+6, x+26, count-39, colour);
+
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 279) {
+        
+        // row 41
+        draw_horizontal_line(x+5, x+27, count-40, BLACK);
+        draw_horizontal_line(x+6, x+26, count-40, colour);
+
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 280) {
+        
+        // row 42
+        draw_horizontal_line(x+5, x+27, count-41, BLACK);
+        draw_horizontal_line(x+8, x+24, count-41, colour);
+
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 281) {
+    
+        // row 43
+        draw_horizontal_line(x+7, x+25, count-42, BLACK);
+        draw_horizontal_line(x+8, x+24, count-42, colour);
+
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 282) {
+        // row 44
+        draw_horizontal_line(x+7, x+25, count-43, BLACK);
+
+        // row 45
+    }
+
+    else if (count == 283) {
+        // row 45
+    }
+    else {
+
+    }
+
+
+
+
+
+
+        
+        
+}
 
 void top_coming(int x1, int x2, int x3, int firsty, int secondy, int thirdy, int firstlength, short int colour) {
 
@@ -65,12 +10436,7 @@ void config_GIC(void);
 void config_KEYs(void);
 void enable_A9_interrupts(void);
 
-// colours - green for points, pink for lines
-short int BLACK = 0x00000; 
-short int YELLOW = 0xFFF700;
-short int WHITE = 0xFFFFFF;
-short int BLUE = 0x0055FF;
-short int ROAD_GREY = 0x1FA244;
+
 
 // Create global booleans
 volatile bool key0Press = false;
@@ -80,7 +10446,7 @@ volatile bool carMoveLeft = false;
 /********************************************************************
 * Pushbutton - Interrupt Service Routine
 *
-* This routine checks which KEY has been pressed. 
+* This routine checks which KEY has been pressed. It writes to HEX0
 *******************************************************************/
 void pushbutton_ISR(void) {
     /* KEY base address */
@@ -96,12 +10462,15 @@ void pushbutton_ISR(void) {
     else if (press & 0x2) { //KEY1
 		carMoveRight = true;
     }
+	
     else if (press & 0x4) { //KEY2
 		carMoveLeft = true;
     }
+	
     else { //KEY3
 
     }
+	
     return;
 }
 
@@ -123,9 +10492,6 @@ int main(void){
     while (!key0Press) {
         ; // poll until user presses key 0 
     }
-		/********************************************************************
-		* KEY0 has been pressed
-		*******************************************************************/
         clear_screen();
         
         // sets initial variables for the lanes
@@ -139,13 +10505,17 @@ int main(void){
         // sets length for the first line while it moves down
         int firstlength = 0;
 
+
         // sets inital position for the taxi
         int x = 140;
         int y = 175;
+        int a = 140;
 
         // start off with the top coming down
         bool top = true;
-        
+        int count = 0;
+
+        // while true
         while(1){
             
             // draw backgrond
@@ -158,6 +10528,10 @@ int main(void){
                 top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
                 // draw taxi
                 draw_taxi(x,y);
+                draw_new_car(a,WHITE, count);
+                draw_new_car(30, BLUE, count);
+                draw_new_car(240, ROAD_GREY, count);
+                count = count + 1;
             }
 
             // if top == false
@@ -167,10 +10541,16 @@ int main(void){
                 bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
                 // draw taxi
                 draw_taxi(x,y);
+                draw_new_car(a, WHITE, count);
+                draw_new_car(30, BLUE, count);
+                draw_new_car(240, ROAD_GREY, count);
+                x=x+1;
+                count = count + 1;
             }
 
             // wait for screen to refresh
             wait_for_vsync();
+
 
             // if top == true
             if (top) {
@@ -214,78 +10594,176 @@ int main(void){
                 }
             }
 			
-			/********************************************************************
-			* KEY1 has been pressed
-			*******************************************************************/
-			while (carMoveRight) {
+			if (carMoveRight) {
+				
+				while(1) {
 				            
-            	// draw backgrond
-            	background();
+            // draw backgrond
+            background();
 
-            	// if top == true
-            	if (top) {
+            // if top == true
+            if (top) {
 
-                	// draw the top line growing gradually and the bottom two lines
-                	top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
-                	// draw taxi
-                	draw_taxi(x,y);
-            	}
+                // draw the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+                // draw taxi
+                draw_taxi(x,y);
+                draw_new_car(a,WHITE, count);
+                draw_new_car(30, BLUE, count);
+                draw_new_car(240, ROAD_GREY, count);
+                count = count + 1;
+            }
 
-            	// if top == false
-            	else {
+            // if top == false
+            else {
 
-                	// draw the top two full lines and the bottom line getting smaller
-                	bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
-                	// draw taxi
-                	draw_taxi(x,y);
-            	}
+                // draw the top two full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+                // draw taxi
+                draw_taxi(x,y);
+                draw_new_car(a, WHITE, count);
+                draw_new_car(30, BLUE, count);
+                draw_new_car(240, ROAD_GREY, count);
+                x=x+1;
+                count = count + 1;
+            }
 
-            	// wait for screen to refresh
-            	wait_for_vsync();
-
-            	// if top == true
-            	if (top) {
-
-                	// erases the top line growing gradually and the bottom two lines
-                	top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
-
-
-                	// increases the starting positions of the bottom two lines
-                	y2 = y2 + 1;
-                	y3 = y3 + 1;
-
-                	// increases the length of the first line for it to grow
-                	firstlength = firstlength + 1;
-
-                	// once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
-                	if (y2 == 96) {
-                    	top = false;
-                	} 
-            	}
-
-            	// if top == false
-            	else {
-
-                	// erases the top full lines and the bottom line getting smaller
-                	bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
-
-                	// increases the position of the lanes to move down
-                	y1 = y1 + 1;
-                	y2 = y2 + 1;
-                	y3 = y3 + 1;
+            // wait for screen to refresh
+            wait_for_vsync();
 
 
-                	// once the bottom line disappears, restart by drawing the top line
-                	if (y1 == 48) {
-                    	top = true;
-                    	y1 = 0;
-                    	y2 = 48;
-                    	y3 = 144;
-                    	firstlength = 0;
-                	}
-            	}
+            // if top == true
+            if (top) {
+
+                // erases the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
+
+                // increases the starting positions of the bottom two lines
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+                // increases the length of the first line for it to grow
+                firstlength = firstlength + 1;
+
+                // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
+                if (y2 == 96) {
+                    top = false;
+                } 
+            }
+
+            // if top == false
+            else {
+
+                // erases the top full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
+
+                // increases the position of the lanes to move down
+                y1 = y1 + 1;
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+
+                // once the bottom line disappears, restart by drawing the top line
+                if (y1 == 48) {
+                    top = true;
+                    y1 = 0;
+                    y2 = 48;
+                    y3 = 144;
+                    firstlength = 0;
+                }
+            }
+				// ADD STUFF HERE FOR KEY1
 				draw_line(0,20,319,20,0x01FF);
+					
+				}
 			}
+			
+			else if (carMoveLeft) {
+				
+				while(1) {
+				            
+            // draw backgrond
+            background();
+
+            // if top == true
+            if (top) {
+
+                // draw the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+                // draw taxi
+                draw_taxi(x,y);
+                draw_new_car(a,WHITE, count);
+                draw_new_car(30, BLUE, count);
+                draw_new_car(240, ROAD_GREY, count);
+                count = count + 1;
+            }
+
+            // if top == false
+            else {
+
+                // draw the top two full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+                // draw taxi
+                draw_taxi(x,y);
+                draw_new_car(a, WHITE, count);
+                draw_new_car(30, BLUE, count);
+                draw_new_car(240, ROAD_GREY, count);
+                x=x+1;
+                count = count + 1;
+            }
+
+            // wait for screen to refresh
+            wait_for_vsync();
+
+
+            // if top == true
+            if (top) {
+
+                // erases the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
+
+                // increases the starting positions of the bottom two lines
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+                // increases the length of the first line for it to grow
+                firstlength = firstlength + 1;
+
+                // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
+                if (y2 == 96) {
+                    top = false;
+                } 
+            }
+
+            // if top == false
+            else {
+
+                // erases the top full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
+
+                // increases the position of the lanes to move down
+                y1 = y1 + 1;
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+
+                // once the bottom line disappears, restart by drawing the top line
+                if (y1 == 48) {
+                    top = true;
+                    y1 = 0;
+                    y2 = 48;
+                    y3 = 144;
+                    firstlength = 0;
+                }
+            }
+				// ADD STUFF HERE FOR KEY2
+				draw_line(0,80,319,80,0xFFFF);
+					
+				}
+			}
+
         }
     
     return 0;
