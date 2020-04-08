@@ -19,6 +19,7 @@ void draw_taxi(int x, int y);
 void top_coming(int x1, int x2, int x3, int firsty, int secondy, int thirdy, int firstlength, short int colour);
 void bottom_disappearing(int x1, int x2, int x3, int firsty, int secondy, int thirdy, short int colour);
 void draw_new_car(int x, short int colour, int count);
+bool crash(int a, int b, int c, int count, int x);
 
 // colours - green for points, pink for lines
 short int BLACK = 0x00000; 
@@ -26,6 +27,1033 @@ short int YELLOW = 0xFFF700;
 short int WHITE = 0xFFFFFF;
 short int BLUE = 0x0055FF;
 short int ROAD_GREY = 0x1FA244;
+short int RED = 0xF3F4D0;
+
+
+// Interrupt functions
+void disable_A9_interrupts(void);
+void set_A9_IRQ_stack(void);
+void config_GIC(void);
+void config_KEYs(void);
+void enable_A9_interrupts(void);
+
+
+
+// Create global booleans
+volatile bool key0Press = false;
+volatile bool carMoveRight = false;
+volatile bool carMoveLeft = false;
+
+
+int main(void){
+    volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
+    /* Read location of the pixel buffer from the pixel buffer controller */
+    pixel_buffer_start = *pixel_ctrl_ptr;
+    clear_screen();
+    start_message();
+    
+    disable_A9_interrupts(); // disable interrupts in the A9 processor
+    set_A9_IRQ_stack(); // initialize the stack pointer for IRQ mode
+    config_GIC(); // configure the general interrupt controller
+    config_KEYs(); // configure pushbutton KEYs to generate interrupts
+    enable_A9_interrupts(); // enable interrupts in the A9 processor
+    //while (1); // you're never gonna leave this.
+
+    // stores all starting positions for the 6 lanes
+    int potentialStartingPositions[6] = {10,114,219,60,165,274};
+
+    // chooses 3 random indexes for the array
+    int digit1 = rand()%6 + 1;
+    int digit2 = rand()%6 + 1;
+    while (digit2 == digit1) {
+        digit2 = rand()%6 + 1;
+    }
+    int digit3 = rand()%6 + 1;
+    while (digit3 == digit1 || digit3 == digit2) {
+        digit3 = rand()%6 + 1;
+    }
+
+    // sets the three cars starting position based on the randomized indexes
+    int a = potentialStartingPositions[digit1];
+    int b = potentialStartingPositions[digit2];
+    int c = potentialStartingPositions[digit3];
+
+
+    while (!key0Press) {
+        ; // poll until user presses key 0 
+    }
+        clear_screen();
+        
+        // sets initial variables for the lanes
+        int x1 = 52;
+        int x2 = 156;
+        int x3 = 262;
+        int y1 = 0;
+        int y2 = 48;
+        int y3 = 144;
+
+        // sets length for the first line while it moves down
+        int firstlength = 0;
+
+        // sets inital position for the taxi
+        int x = 250;
+        int y = 175;
+
+        // start off with the top coming down
+        bool top = true;
+        int count = 0;
+
+        // while true
+        while(1){
+            
+            // draw backgrond
+            background();
+            bool checkForCrash = crash(a,b,c,count,x);
+
+            if (checkForCrash) {
+
+                // I PUT A WHITE BOX WHEN CRASH IS DETECTED
+                // YOU CAN JUST BREAK AND THEN HAVE WIN SCREEN OUTSIDE
+                // OR DRAW IN HERE OR CALL FUNCTION TO DO IT
+                draw_box(0,0,150,150,WHITE);
+                break;
+            }
+
+            // if top == true
+            if (top) {
+
+                // draw the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+
+                draw_taxi(x,y);
+
+                draw_new_car(a, WHITE, count);
+                draw_new_car(b, RED, count);
+                draw_new_car(c, ROAD_GREY, count);
+                count = count + 1;
+
+                if (count == 290) {
+
+                    // restart cars from top
+                    count = 0;
+
+                    // randomize new car positions
+                    digit1 = rand()%6 + 1;
+                    digit2 = rand()%6 + 1;
+                    while (digit2 == digit1) {
+                        digit2 = rand()%6 + 1;
+                    }
+                    digit3 = rand()%6 + 1;
+                    while (digit3 == digit1 || digit3 == digit2) {
+                        digit3 = rand()%6 + 1;
+                    }
+
+                    a = potentialStartingPositions[digit1];
+                    b = potentialStartingPositions[digit2];
+                    c = potentialStartingPositions[digit3];
+                }
+            }
+
+            // if top == false
+            else {
+
+                // draw the top two full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+
+                draw_taxi(x,y);
+
+                draw_new_car(a, WHITE, count);
+                draw_new_car(b, RED, count);
+                draw_new_car(c, ROAD_GREY, count);
+                
+                count = count + 1;
+
+                if (count == 290) {
+                    
+                    // restart cars from top
+                    count = 0;
+
+                    // randomize new car positions
+                    digit1 = rand()%6 + 1;
+                    digit2 = rand()%6 + 1;
+                    while (digit2 == digit1) {
+                        digit2 = rand()%6 + 1;
+                    }
+                    digit3 = rand()%6 + 1;
+                    while (digit3 == digit1 || digit3 == digit2) {
+                        digit3 = rand()%6 + 1;
+                    }
+
+                    a = potentialStartingPositions[digit1];
+                    b = potentialStartingPositions[digit2];
+                    c = potentialStartingPositions[digit3];
+                }
+            }
+
+            // wait for screen to refresh
+            wait_for_vsync();
+
+
+            // if top == true
+            if (top) {
+
+                // erases the top line growing gradually and the bottom two lines
+                top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
+                // increases the starting positions of the bottom two lines
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+                // increases the length of the first line for it to grow
+                firstlength = firstlength + 1;
+
+                // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
+                if (y2 == 96) {
+                    top = false;
+                } 
+            }
+
+            // if top == false
+            else {
+
+                // erases the top full lines and the bottom line getting smaller
+                bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
+
+                // increases the position of the lanes to move down
+                y1 = y1 + 1;
+                y2 = y2 + 1;
+                y3 = y3 + 1;
+
+                // once the bottom line disappears, restart by drawing the top line
+                if (y1 == 48) {
+                    top = true;
+                    y1 = 0;
+                    y2 = 48;
+                    y3 = 144;
+                    firstlength = 0;
+                }
+            }
+            
+            if (carMoveRight) {
+                
+                while(carMoveRight) {
+                            
+                    // draw backgrond
+                    background();
+
+                    // if top == true
+                    if (top) {
+
+                        x = x + 1;
+
+                        // draw the top line growing gradually and the bottom two lines
+                        top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+                        
+                        draw_taxi(x,y);
+
+                        draw_new_car(a, WHITE, count);
+                        draw_new_car(b, RED, count);
+                        draw_new_car(c, ROAD_GREY, count);
+                        count = count + 1;
+
+                        if (count == 290) {
+
+                            // restart cars from top
+                            count = 0;
+
+                            // randomize new car positions
+                            digit1 = rand()%6 + 1;
+                            digit2 = rand()%6 + 1;
+                            while (digit2 == digit1) {
+                                digit2 = rand()%6 + 1;
+                            }
+                            digit3 = rand()%6 + 1;
+                            while (digit3 == digit1 || digit3 == digit2) {
+                                digit3 = rand()%6 + 1;
+                            }
+
+                            a = potentialStartingPositions[digit1];
+                            b = potentialStartingPositions[digit2];
+                            c = potentialStartingPositions[digit3];
+                        }
+                    }
+
+                    // if top == false
+                    else {
+
+                        // draw the top two full lines and the bottom line getting smaller
+                        bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+                        
+                        x = x + 1;
+
+                        draw_taxi(x,y);
+
+                        draw_new_car(a, WHITE, count);
+                        draw_new_car(b, RED, count);
+                        draw_new_car(c, ROAD_GREY, count);
+                        
+                        count = count + 1;
+
+                        if (count == 290) {
+                            
+                            // restart cars from top
+                            count = 0;
+
+                            // randomize new car positions
+                            digit1 = rand()%6 + 1;
+                            digit2 = rand()%6 + 1;
+                            while (digit2 == digit1) {
+                                digit2 = rand()%6 + 1;
+                            }
+                            digit3 = rand()%6 + 1;
+                            while (digit3 == digit1 || digit3 == digit2) {
+                                digit3 = rand()%6 + 1;
+                            }
+
+                            a = potentialStartingPositions[digit1];
+                            b = potentialStartingPositions[digit2];
+                            c = potentialStartingPositions[digit3];
+                        }
+                    }
+
+                    // wait for screen to refresh
+                    wait_for_vsync();
+
+
+                    // if top == true
+                    if (top) {
+
+                        // erases the top line growing gradually and the bottom two lines
+                        top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
+
+                        // increases the starting positions of the bottom two lines
+                        y2 = y2 + 1;
+                        y3 = y3 + 1;
+
+                        // increases the length of the first line for it to grow
+                        firstlength = firstlength + 1;
+
+                        // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
+                        if (y2 == 96) {
+                            top = false;
+                        } 
+                    }
+
+                    // if top == false
+                    else {
+
+                        // erases the top full lines and the bottom line getting smaller
+                        bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
+
+                        // increases the position of the lanes to move down
+                        y1 = y1 + 1;
+                        y2 = y2 + 1;
+                        y3 = y3 + 1;
+
+
+                        // once the bottom line disappears, restart by drawing the top line
+                        if (y1 == 48) {
+                            top = true;
+                            y1 = 0;
+                            y2 = 48;
+                            y3 = 144;
+                            firstlength = 0;
+                        }
+                    }
+                    carMoveRight = false;
+                }
+            }
+            
+            else if (carMoveLeft) {
+                
+                while(carMoveLeft) {
+                            
+                    // draw backgrond
+                    background();
+
+                    // if top == true
+                    if (top) {
+
+                        // draw the top line growing gradually and the bottom two lines
+                        top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
+
+                        x = x - 1;
+                        draw_taxi(x,y);
+
+                        draw_new_car(a,WHITE, count);
+                        draw_new_car(b, RED, count);
+                        draw_new_car(c, ROAD_GREY, count);
+                        count = count + 1;
+
+                        if (count == 290) {
+                            
+                            // restart cars from top
+                            count = 0;
+
+                            // randomize new car positions
+                            digit1 = rand()%6 + 1;
+                            digit2 = rand()%6 + 1;
+                            while (digit2 == digit1) {
+                                digit2 = rand()%6 + 1;
+                            }
+                            digit3 = rand()%6 + 1;
+                            while (digit3 == digit1 || digit3 == digit2) {
+                                digit3 = rand()%6 + 1;
+                            }
+
+                            a = potentialStartingPositions[digit1];
+                            b = potentialStartingPositions[digit2];
+                            c = potentialStartingPositions[digit3];
+                        }
+                    }
+
+                    // if top == false
+                    else {
+
+                        // draw the top two full lines and the bottom line getting smaller
+                        bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
+
+                        x = x - 1;
+                        draw_taxi(x,y);
+
+                        draw_new_car(a, WHITE, count);
+                        draw_new_car(b, RED, count);
+                        draw_new_car(c, ROAD_GREY, count);
+                        
+                        count = count + 1;
+
+                        if (count == 290) {
+                            
+                            // restart cars from top
+                            count = 0;
+
+                            // randomize new car positions
+                            digit1 = rand()%6 + 1;
+                            digit2 = rand()%6 + 1;
+                            while (digit2 == digit1) {
+                                digit2 = rand()%6 + 1;
+                            }
+                            digit3 = rand()%6 + 1;
+                            while (digit3 == digit1 || digit3 == digit2) {
+                                digit3 = rand()%6 + 1;
+                            }
+
+                            a = potentialStartingPositions[digit1];
+                            b = potentialStartingPositions[digit2];
+                            c = potentialStartingPositions[digit3];
+                        }
+                    }
+
+                    // wait for screen to refresh
+                    wait_for_vsync();
+
+
+                    // if top == true
+                    if (top) {
+
+                        // erases the top line growing gradually and the bottom two lines
+                        top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
+
+
+                        // increases the starting positions of the bottom two lines
+                        y2 = y2 + 1;
+                        y3 = y3 + 1;
+
+                        // increases the length of the first line for it to grow
+                        firstlength = firstlength + 1;
+
+                        // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
+                        if (y2 == 96) {
+                            top = false;
+                        } 
+                    }
+
+                    // if top == false
+                    else {
+
+                        // erases the top full lines and the bottom line getting smaller
+                        bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
+
+                        // increases the position of the lanes to move down
+                        y1 = y1 + 1;
+                        y2 = y2 + 1;
+                        y3 = y3 + 1;
+
+
+                        // once the bottom line disappears, restart by drawing the top line
+                        if (y1 == 48) {
+                            top = true;
+                            y1 = 0;
+                            y2 = 48;
+                            y3 = 144;
+                            firstlength = 0;
+                        }
+                    }
+
+                    carMoveLeft = false;
+                }
+            }
+        }
+    
+    return 0;
+}
+
+
+/********************************************************************
+* Pushbutton - Interrupt Service Routine
+*
+* This routine checks which KEY has been pressed. It writes to HEX0
+*******************************************************************/
+void pushbutton_ISR(void) {
+    /* KEY base address */
+    volatile int * KEY_ptr = (int *) 0xFF200050;
+    int press;
+    press = *(KEY_ptr + 3); // read the pushbutton interrupt register
+    *(KEY_ptr + 3) = press; // Clear the interrupt
+    
+    if (press & 0x1) { // KEY0
+        key0Press = true;
+    }
+    
+    else if (press & 0x2) { //KEY1
+        carMoveRight = true;
+    }
+    
+    else if (press & 0x4) { //KEY2
+        carMoveLeft = true;
+    }
+    
+    else { //KEY3
+
+    }
+    
+    return;
+}
+
+
+void top_coming(int x1, int x2, int x3, int firsty, int secondy, int thirdy, int firstlength, short int colour) {
+
+    // draw lanes on left
+
+    draw_vertical_line(x1, 0, firstlength, colour);
+    draw_vertical_line(x1, secondy, secondy+48, colour);
+    draw_vertical_line(x1, thirdy, thirdy+48, colour);
+        
+    // draw lanes in middle
+    draw_vertical_line(x2, 0, firstlength, colour);
+    draw_vertical_line(x2, secondy, secondy+48, colour);
+    draw_vertical_line(x2, thirdy, thirdy+48, colour);
+
+    // draw lanes on left
+    draw_vertical_line(x3, 0, firstlength, colour);
+    draw_vertical_line(x3, secondy, secondy+48, colour);
+    draw_vertical_line(x3, thirdy, thirdy+48, colour);
+
+}
+
+void bottom_disappearing(int x1, int x2, int x3, int firsty, int secondy, int thirdy, short int colour) {
+
+    // draw lanes on left
+    draw_vertical_line(x1, firsty, firsty+48, colour);
+    draw_vertical_line(x1, secondy, secondy+48, colour);
+    draw_vertical_line(x1, thirdy, 240, colour);
+    
+    // draw lanes in middle
+    draw_vertical_line(x2, firsty, firsty+48, colour);
+    draw_vertical_line(x2, secondy, secondy+48, colour);
+    draw_vertical_line(x2, thirdy, 240, colour);
+
+    // draw lanes on left
+    draw_vertical_line(x3, firsty, firsty+48, colour);
+    draw_vertical_line(x3, secondy, secondy+48, colour);
+    draw_vertical_line(x3, thirdy, 240, colour);
+
+}
+
+
+// Draws the background
+void background(){
+    // First pair of dotted lines
+    //draw_line(52, 48, 52, 96, 0xFFFF);
+    //draw_line(52, 144, 52, 192, 0xFFFF);
+
+    // First big lane
+    draw_line(103, 0, 103, 239, 0xFFFF);
+    draw_line(104, 0, 104, 239, 0xFFFF);
+    
+    // Second pair of dotted lines
+    //draw_line(156, 48, 156, 96, 0xFFFF);
+    //draw_line(156, 144, 156, 192, 0xFFFF);
+
+    // Second big lane
+    draw_line(209, 0, 209, 239, 0xFFFF);
+    draw_line(210, 0, 210, 239, 0xFFFF);
+    
+    // Third pair of dotted lines
+    //draw_line(262, 48, 262, 96, 0xFFFF);
+    //draw_line(262, 144, 262, 192, 0xFFFF);
+}
+
+
+// Series of strings that are displayed at the start screen
+void start_message(){
+   char* first_string = "Crazy Taxi";
+   int x = 153;
+   while (*first_string) {
+     write_char(x, 20, *first_string);
+     x++;
+     first_string++;
+   }
+    
+   char* second_string = "Created by: Shadman and Abdurrafay";
+   x = 153;
+   while (*second_string) {
+     write_char(x, 22, *second_string);
+     x++;
+     second_string++;
+   }
+    
+   char* third_string = "Winter 2020 ECE243";
+   x = 153;
+   while (*third_string) {
+     write_char(x, 24, *third_string);
+     x++;
+     third_string++;
+   }
+    
+   char* fourth_string = "KEY2 = Left, KEY1 = Right";
+   x = 153;
+   while (*fourth_string) {
+     write_char(x, 28, *fourth_string);
+     x++;
+     fourth_string++;
+   }
+    
+   char* fifth_string = "Space to Stop";
+   x = 153;
+   while (*fifth_string) {
+     write_char(x, 30, *fifth_string);
+     x++;
+     fifth_string++;
+   }
+    
+   char* sixth_string = "Press KEY0 to Continue...";
+   x = 153;
+   while (*sixth_string) {
+     write_char(x, 32, *sixth_string);
+     x++;
+     sixth_string++;
+   }
+    
+   char* seventh_string = "Remember to set breakpoint at EXIT";
+   x = 153;
+   while (*seventh_string) {
+     write_char(x, 34, *seventh_string);
+     x++;
+     seventh_string++;
+   }
+}
+
+//Used to swap the values of x and y when requires in draw_line function
+void swap(int *x, int *y){
+    int temp = *x;
+    *x = *y;
+    *y = temp;   
+}
+
+// Used to write the character
+void write_char(int x, int y, char c) {
+  // VGA character buffer
+  volatile char * character_buffer = (char *) (0xc9000000 + (y<<7) + x);
+  *character_buffer = c;
+}
+
+// Clears the character and pixel buffer on the screen
+void clear_screen() {
+    int x, y;
+    for (x = 0; x < 320; x++){
+        for (y = 0; y < 240; y++){
+            plot_pixel(x, y, 0x0000);
+        }
+    }
+    
+    for (x = 0; x < 80; x++){
+        for (y = 0; y < 60; y++){
+            write_char(x, y, ' ');
+        }
+    }
+}
+
+// function to sync entire screen
+void wait_for_vsync(){
+
+    // buffer register
+    volatile int *pixel_ctr_ptr= (int*)0xFF203020;
+    register int status;
+
+    *pixel_ctr_ptr=1; // start sync process
+    
+    // status equals 0 when full screen done
+    status = *(pixel_ctr_ptr + 3);
+    while ((status & 0x01) !=0){
+        status= *(pixel_ctr_ptr +3);
+    }
+}
+
+// function to draw a line
+void draw_horizontal_line(int x0, int x1, int y, short int colour){
+        
+    // go through all x points for that line, y stays same, plot
+    for(int x=x0;x<x1+1; ++x){
+        plot_pixel(x,y,colour);
+    }
+}
+
+// function to draw a line
+void draw_vertical_line(int x, int y0, int y1, short int colour){
+        
+    // go through all x points for that line, y stays same, plot
+    for(int y=y0;y<y1+1; ++y){
+        plot_pixel(x,y,colour);
+    }
+}
+
+
+void plot_pixel(int x, int y, short int line_color){
+    *(short int*)(pixel_buffer_start + (y << 10) + (x << 1)) = line_color;
+}
+
+// Draw a box at (x,y) location
+void draw_box(int x, int y, int width, int length, short int color){
+    for(int i = y; i < y+length ; ++i)
+        for (int j = x; j < x+width ; ++j)
+        plot_pixel(j, i, color);
+}   
+
+void draw_line(int x0, int y0, int x1, int y1, short int color){
+    bool is_steep = abs(y1 - y0) > abs(x1 - x0);
+
+    if (is_steep){
+        swap(&x0, &y0);
+        swap(&x1, &y1);
+    }
+
+    if (x0 > x1){
+        swap(&x0, &x1);
+        swap(&y0, &y1);
+    }
+
+    int deltax = x1 - x0;
+    int deltay = y1 - y0;
+
+    if (deltay < 0){
+        deltay = -deltay;
+    }
+
+    //The error variable takes into account the relative difference between 
+    //the width (deltax) and height of the line (deltay) in deciding how often y 
+    //should beincremented. 
+    int error = -(deltax / 2);
+
+    int y = y0;
+    int y_step;
+
+    if (y0 < y1){
+        y_step = 1;
+    }
+
+    else{
+        y_step = -1;
+    }
+
+    for (int x = x0; x <= x1; x++){
+        if (is_steep){
+            plot_pixel(y, x, color);
+        }
+        else{
+            plot_pixel(x, y, color);
+        }
+
+        error = error + deltay;
+
+        if (error >= 0){
+            y = y + y_step;
+            error = error - deltax;
+        }
+    }
+}
+
+/* setup the KEY interrupts in the FPGA */
+void config_KEYs() {
+    volatile int * KEY_ptr = (int *) 0xFF200050; // pushbutton KEY base address
+    *(KEY_ptr + 2) = 0xF; // enable interrupts for the two KEYs
+}
+
+void pushbutton_ISR(void);
+void config_interrupt(int, int);
+
+// Define the IRQ exception handler
+void __attribute__((interrupt)) __cs3_isr_irq(void) {
+
+    // Read the ICCIAR from the CPU Interface in the GIC
+    int interrupt_ID = *((int *)0xFFFEC10C);
+
+    if (interrupt_ID == 73) // check if interrupt is from the KEYs
+    pushbutton_ISR();
+        else {
+    while (1); // if unexpected, then stay here
+    }
+            
+    // Write to the End of Interrupt Register (ICCEOIR)
+    *((int *)0xFFFEC110) = interrupt_ID;
+}
+
+// Define the remaining exception handlers
+void __attribute__((interrupt)) __cs3_reset(void) {
+    while (1);
+}
+
+void __attribute__((interrupt)) __cs3_isr_undef(void) {
+    while (1);
+}
+
+void __attribute__((interrupt)) __cs3_isr_swi(void) {
+    while (1);
+}
+
+void __attribute__((interrupt)) __cs3_isr_pabort(void) {
+    while (1);
+}
+
+void __attribute__((interrupt)) __cs3_isr_dabort(void) {
+    while (1);
+}
+
+void __attribute__((interrupt)) __cs3_isr_fiq(void) {
+    while (1);
+}
+
+/*
+* Turn off interrupts in the ARM processor
+*/
+void disable_A9_interrupts(void) {
+    int status = 0b11010011;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(status));
+}
+
+/*
+* Initialize the banked stack pointer register for IRQ mode
+*/
+void set_A9_IRQ_stack(void) {
+    int stack, mode;
+    stack = 0xFFFFFFFF - 7; // top of A9 onchip memory, aligned to 8 bytes
+    /* change processor to IRQ mode with interrupts disabled */
+    mode = 0b11010010;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
+    /* set banked stack pointer */
+    asm("mov sp, %[ps]" : : [ps] "r"(stack));
+        /* go back to SVC mode before executing subroutine return! */
+    mode = 0b11010011;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
+}
+
+/*
+* Turn on interrupts in the ARM processor
+*/
+void enable_A9_interrupts(void) {
+    int status = 0b01010011;
+    asm("msr cpsr, %[ps]" : : [ps] "r"(status));
+}
+
+/*
+* Configure the Generic Interrupt Controller (GIC)
+*/
+void config_GIC(void) {
+    config_interrupt (73, 1); // configure the FPGA KEYs interrupt (73)
+    // Set Interrupt Priority Mask Register (ICCPMR). Enable interrupts of all
+    // priorities
+    *((int *) 0xFFFEC104) = 0xFFFF;
+    // Set CPU Interface Control Register (ICCICR). Enable signaling of interrupts
+    *((int *) 0xFFFEC100) = 1;
+    // Configure the Distributor Control Register (ICDDCR) to send pending interrupts to CPUs
+    *((int *) 0xFFFED000) = 1;
+}
+
+/*
+* Configure Set Enable Registers (ICDISERn) and Interrupt Processor Target
+* Registers (ICDIPTRn). The default (reset) values are used for other registers
+* in the GIC.
+*/
+void config_interrupt(int N, int CPU_target) {
+    int reg_offset, index, value, address;
+    /* Configure the Interrupt Set-Enable Registers (ICDISERn).
+    * reg_offset = (integer_div(N / 32) * 4
+    * value = 1 << (N mod 32) */
+    reg_offset = (N >> 3) & 0xFFFFFFFC;
+    index = N & 0x1F;
+    value = 0x1 << index;
+    address = 0xFFFED100 + reg_offset;
+    /* Now that we know the register address and value, set the appropriate bit */
+    *(int *)address |= value;
+    /* Configure the Interrupt Processor Targets Register (ICDIPTRn)
+    * reg_offset = integer_div(N / 4) * 4
+    * index = N mod 4 */
+    reg_offset = (N & 0xFFFFFFFC);
+    index = N & 0x3;
+    address = 0xFFFED800 + reg_offset + index;
+    /* Now that we know the register address and value, write to (only) the
+    * appropriate byte */
+    *(char *)address = (char)CPU_target;
+}
+
+// checks for a crash
+bool crash(int a, int b, int c, int count, int x) {
+    
+    // if the obstacles are at the height of the car
+    if (count > 178 && (count-45) <225) {
+
+        // if the taxi is touching the car from the left or touching the right of the car
+        if (((x+26) >= a  && (x) <= (a+26)) || (x >= a && x <= (a+26))){
+            return true;
+        }
+        else if (((x+26) >= b  && (x) <= (b+26)) || (x >= b && x <= (b+26))) {
+            return true;
+        }
+        else if (((x+26) >= c  && (x) <= (c+26)) || (x >= c && x <= (c+26))) {
+            return true;
+        }
+        // if not touching any car, no crash
+        else {
+            return false;
+        }
+    }
+    // if not at right altitude, no crash
+    else {
+        return false;
+    }
+}
+
+void draw_taxi(int x, int y) {
+
+
+    // draws yellow base
+    draw_box(x+8, y+3, 17, 41, YELLOW);
+    draw_box(x+6, y+5, 2, 37, YELLOW);
+    draw_box(x+4, y+7, 2, 33, YELLOW);
+    draw_box(x+25, y+5, 2, 37, YELLOW);
+    draw_box(x+27, y+7, 2, 33, YELLOW);
+
+    // draws top half horizontal outlines
+    draw_horizontal_line(x+7, x+25, y+2, BLACK);
+    draw_horizontal_line(x+5, x+7, y+4, BLACK);
+    draw_horizontal_line(x+3, x+5, y+6, BLACK);
+    draw_horizontal_line(x+25, x+27, y+4, BLACK);
+    draw_horizontal_line(x+27, x+29, y+6, BLACK);
+
+    // draws bottom half horizontal outlines
+    draw_horizontal_line(x+3, x+5, y+40, BLACK);
+    draw_horizontal_line(x+5, x+7, y+42, BLACK);
+    draw_horizontal_line(x+7, x+25, y+44, BLACK);
+    draw_horizontal_line(x+27, x+29, y+40, BLACK);
+    draw_horizontal_line(x+25, x+27, y+42, BLACK);
+
+    // draws top vertical outlines
+    draw_vertical_line(x+7, y+2, y+4, BLACK);
+    draw_vertical_line(x+5, y+4, y+6, BLACK);
+    draw_vertical_line(x+25, y+2, y+4, BLACK);
+    draw_vertical_line(x+27, y+4, y+6, BLACK);
+
+    // draws side vertical outlines
+    draw_vertical_line(x+3, y+6, y+40, BLACK);
+    draw_vertical_line(x+29, y+6, y+40, BLACK);
+
+    // draws bottom half vertical outlines
+    draw_vertical_line(x+5, y+40, y+42, BLACK);
+    draw_vertical_line(x+7, y+42, y+44, BLACK);
+    draw_vertical_line(x+27, y+40, y+42, BLACK);
+    draw_vertical_line(x+25, y+42, y+44, BLACK);
+
+    // draw tires
+    draw_vertical_line(x+2, y+11, y+17, BLACK);
+    draw_vertical_line(x+30, y+11, y+17, BLACK);
+    draw_vertical_line(x+2, y+30, y+36, BLACK);
+    draw_vertical_line(x+30, y+30, y+36, BLACK);
+
+    // draw headlights white
+    draw_box(x+6, y+5, 2, 1, 0xFFFFFF);
+    draw_box(x+8, y+3, 1, 3, 0xFFFFFF);
+    draw_box(x+24, y+3, 1, 3, 0xFFFFFF);
+    draw_box(x+25, y+5, 2, 1, 0xFFFFFF);
+
+    // draw headlights outline
+    draw_vertical_line(x+9, y+3, y+6, BLACK);
+    draw_vertical_line(x+23, y+3, y+6, BLACK);
+    draw_horizontal_line(x+6, x+9, y+6, BLACK);
+    draw_horizontal_line(x+23, x+26, y+6, BLACK);
+
+    // draw license plate
+    draw_horizontal_line(x+14, x+18, y+3, BLUE);
+
+    // draw license plate outline
+    draw_vertical_line(x+13, y+3, y+4, BLACK);
+    draw_vertical_line(x+19, y+3, y+4, BLACK);
+    draw_horizontal_line(x+14, x+18, y+4, BLACK);
+
+    // draw front window
+    draw_horizontal_line(x+13, x+19, y+8, BLUE);
+    draw_horizontal_line(x+11, x+21, y+9, BLUE);
+    draw_box(x+9, y+10, 15, 4, BLUE);
+
+    // draw front window outline
+    draw_horizontal_line(x+12, x+20, y+7, BLACK);
+    draw_horizontal_line(x+10, x+12, y+8, BLACK);
+    draw_horizontal_line(x+8, x+10, y+9, BLACK);
+    draw_horizontal_line(x+20, x+22, y+8, BLACK);
+    draw_horizontal_line(x+22, x+24, y+9, BLACK);
+    draw_horizontal_line(x+8, x+24, y+14, BLACK);
+    draw_vertical_line(x+8, y+9, y+14, BLACK);
+    draw_vertical_line(x+24, y+9, y+14, BLACK);
+
+    // draw side windows
+    draw_vertical_line(x+4, y+18, y+27, BLUE);
+    draw_vertical_line(x+28, y+18, y+27, BLUE);
+
+    // draw side windows outlines
+    draw_vertical_line(x+5, y+18, y+27, BLACK);
+    draw_vertical_line(x+27, y+18, y+27, BLACK);
+    draw_horizontal_line(x+4, x+5, y+17, BLACK);
+    draw_horizontal_line(x+27, x+28, y+17, BLACK);
+    draw_horizontal_line(x+4, x+5, y+28, BLACK);
+    draw_horizontal_line(x+27, x+28, y+28, BLACK);
+
+    // draw back window
+    draw_horizontal_line(x+9, x+23, y+34, BLUE);
+    draw_horizontal_line(x+11, x+21, y+37, BLUE);
+    draw_box(x+10, y+35, 13, 2, BLUE);
+
+
+    // draw back window outline
+    draw_horizontal_line(x+8, x+24, y+33, BLACK);
+    draw_horizontal_line(x+10, x+22, y+38, BLACK);
+    draw_vertical_line(x+8, y+33, y+35, BLACK);
+    draw_vertical_line(x+24, y+33, y+35, BLACK);
+    draw_vertical_line(x+9, y+35, y+37, BLACK);
+    draw_vertical_line(x+23, y+35, y+37, BLACK);
+    draw_vertical_line(x+10, y+37, y+38, BLACK);
+    draw_vertical_line(x+22, y+37, y+38, BLACK);
+
+    // draw middle box outline
+    draw_horizontal_line(x+10, x+22, y+19, BLACK);
+    draw_horizontal_line(x+10, x+22, y+26, BLACK);
+    draw_vertical_line(x+10, y+19, y+26, BLACK);
+    draw_vertical_line(x+22, y+19, y+26, BLACK);
+
+    // draw letter T
+    draw_horizontal_line(x+14, x+18, y+21, BLACK);
+    draw_vertical_line(x+16, y+21, y+24, BLACK);
+}
+
 
 
 void draw_new_car(int x, short int colour, int count) {
@@ -10380,955 +11408,4 @@ void draw_new_car(int x, short int colour, int count) {
     else {
 
     }
-
-
-
-
-
-
-        
-        
-}
-
-void top_coming(int x1, int x2, int x3, int firsty, int secondy, int thirdy, int firstlength, short int colour) {
-
-    // draw lanes on left
-
-    draw_vertical_line(x1, 0, firstlength, colour);
-    draw_vertical_line(x1, secondy, secondy+48, colour);
-    draw_vertical_line(x1, thirdy, thirdy+48, colour);
-        
-    // draw lanes in middle
-    draw_vertical_line(x2, 0, firstlength, colour);
-    draw_vertical_line(x2, secondy, secondy+48, colour);
-    draw_vertical_line(x2, thirdy, thirdy+48, colour);
-
-    // draw lanes on left
-    draw_vertical_line(x3, 0, firstlength, colour);
-    draw_vertical_line(x3, secondy, secondy+48, colour);
-    draw_vertical_line(x3, thirdy, thirdy+48, colour);
-
-}
-
-void bottom_disappearing(int x1, int x2, int x3, int firsty, int secondy, int thirdy, short int colour) {
-
-    // draw lanes on left
-    draw_vertical_line(x1, firsty, firsty+48, colour);
-    draw_vertical_line(x1, secondy, secondy+48, colour);
-    draw_vertical_line(x1, thirdy, 240, colour);
-    
-    // draw lanes in middle
-    draw_vertical_line(x2, firsty, firsty+48, colour);
-    draw_vertical_line(x2, secondy, secondy+48, colour);
-    draw_vertical_line(x2, thirdy, 240, colour);
-
-    // draw lanes on left
-    draw_vertical_line(x3, firsty, firsty+48, colour);
-    draw_vertical_line(x3, secondy, secondy+48, colour);
-    draw_vertical_line(x3, thirdy, 240, colour);
-
-}
-
-// Interrupt functions
-void disable_A9_interrupts(void);
-void set_A9_IRQ_stack(void);
-void config_GIC(void);
-void config_KEYs(void);
-void enable_A9_interrupts(void);
-
-
-
-// Create global booleans
-volatile bool key0Press = false;
-volatile bool carMoveRight = false;
-volatile bool carMoveLeft = false;
-
-/********************************************************************
-* Pushbutton - Interrupt Service Routine
-*
-* This routine checks which KEY has been pressed. It writes to HEX0
-*******************************************************************/
-void pushbutton_ISR(void) {
-    /* KEY base address */
-    volatile int * KEY_ptr = (int *) 0xFF200050;
-    int press;
-    press = *(KEY_ptr + 3); // read the pushbutton interrupt register
-    *(KEY_ptr + 3) = press; // Clear the interrupt
-    
-    if (press & 0x1) { // KEY0
-        key0Press = true;
-    }
-    
-    else if (press & 0x2) { //KEY1
-		carMoveRight = true;
-    }
-	
-    else if (press & 0x4) { //KEY2
-		carMoveLeft = true;
-    }
-	
-    else { //KEY3
-
-    }
-	
-    return;
-}
-
-
-int main(void){
-    volatile int* pixel_ctrl_ptr = (int*) 0xFF203020;
-    /* Read location of the pixel buffer from the pixel buffer controller */
-    pixel_buffer_start = *pixel_ctrl_ptr;
-    clear_screen();
-    start_message();
-    
-    disable_A9_interrupts(); // disable interrupts in the A9 processor
-    set_A9_IRQ_stack(); // initialize the stack pointer for IRQ mode
-    config_GIC(); // configure the general interrupt controller
-    config_KEYs(); // configure pushbutton KEYs to generate interrupts
-    enable_A9_interrupts(); // enable interrupts in the A9 processor
-    //while (1); // you're never gonna leave this.
-
-    while (!key0Press) {
-        ; // poll until user presses key 0 
-    }
-        clear_screen();
-        
-        // sets initial variables for the lanes
-        int x1 = 52;
-        int x2 = 156;
-        int x3 = 262;
-        int y1 = 0;
-        int y2 = 48;
-        int y3 = 144;
-
-        // sets length for the first line while it moves down
-        int firstlength = 0;
-
-
-        // sets inital position for the taxi
-        int x = 140;
-        int y = 175;
-        int a = 140;
-
-        // start off with the top coming down
-        bool top = true;
-        int count = 0;
-
-        // while true
-        while(1){
-            
-            // draw backgrond
-            background();
-
-            // if top == true
-            if (top) {
-
-                // draw the top line growing gradually and the bottom two lines
-                top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
-                // draw taxi
-                draw_taxi(x,y);
-                draw_new_car(a,WHITE, count);
-                draw_new_car(30, BLUE, count);
-                draw_new_car(240, ROAD_GREY, count);
-                count = count + 1;
-            }
-
-            // if top == false
-            else {
-
-                // draw the top two full lines and the bottom line getting smaller
-                bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
-                // draw taxi
-                draw_taxi(x,y);
-                draw_new_car(a, WHITE, count);
-                draw_new_car(30, BLUE, count);
-                draw_new_car(240, ROAD_GREY, count);
-                x=x+1;
-                count = count + 1;
-            }
-
-            // wait for screen to refresh
-            wait_for_vsync();
-
-
-            // if top == true
-            if (top) {
-
-                // erases the top line growing gradually and the bottom two lines
-                top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
-
-
-                // increases the starting positions of the bottom two lines
-                y2 = y2 + 1;
-                y3 = y3 + 1;
-
-                // increases the length of the first line for it to grow
-                firstlength = firstlength + 1;
-
-                // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
-                if (y2 == 96) {
-                    top = false;
-                } 
-            }
-
-            // if top == false
-            else {
-
-                // erases the top full lines and the bottom line getting smaller
-                bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
-
-                // increases the position of the lanes to move down
-                y1 = y1 + 1;
-                y2 = y2 + 1;
-                y3 = y3 + 1;
-
-
-                // once the bottom line disappears, restart by drawing the top line
-                if (y1 == 48) {
-                    top = true;
-                    y1 = 0;
-                    y2 = 48;
-                    y3 = 144;
-                    firstlength = 0;
-                }
-            }
-			
-			if (carMoveRight) {
-				
-				while(1) {
-				            
-            // draw backgrond
-            background();
-
-            // if top == true
-            if (top) {
-
-                // draw the top line growing gradually and the bottom two lines
-                top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
-                // draw taxi
-                draw_taxi(x,y);
-                draw_new_car(a,WHITE, count);
-                draw_new_car(30, BLUE, count);
-                draw_new_car(240, ROAD_GREY, count);
-                count = count + 1;
-            }
-
-            // if top == false
-            else {
-
-                // draw the top two full lines and the bottom line getting smaller
-                bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
-                // draw taxi
-                draw_taxi(x,y);
-                draw_new_car(a, WHITE, count);
-                draw_new_car(30, BLUE, count);
-                draw_new_car(240, ROAD_GREY, count);
-                x=x+1;
-                count = count + 1;
-            }
-
-            // wait for screen to refresh
-            wait_for_vsync();
-
-
-            // if top == true
-            if (top) {
-
-                // erases the top line growing gradually and the bottom two lines
-                top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
-
-
-                // increases the starting positions of the bottom two lines
-                y2 = y2 + 1;
-                y3 = y3 + 1;
-
-                // increases the length of the first line for it to grow
-                firstlength = firstlength + 1;
-
-                // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
-                if (y2 == 96) {
-                    top = false;
-                } 
-            }
-
-            // if top == false
-            else {
-
-                // erases the top full lines and the bottom line getting smaller
-                bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
-
-                // increases the position of the lanes to move down
-                y1 = y1 + 1;
-                y2 = y2 + 1;
-                y3 = y3 + 1;
-
-
-                // once the bottom line disappears, restart by drawing the top line
-                if (y1 == 48) {
-                    top = true;
-                    y1 = 0;
-                    y2 = 48;
-                    y3 = 144;
-                    firstlength = 0;
-                }
-            }
-				// ADD STUFF HERE FOR KEY1
-				draw_line(0,20,319,20,0x01FF);
-					
-				}
-			}
-			
-			else if (carMoveLeft) {
-				
-				while(1) {
-				            
-            // draw backgrond
-            background();
-
-            // if top == true
-            if (top) {
-
-                // draw the top line growing gradually and the bottom two lines
-                top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
-                // draw taxi
-                draw_taxi(x,y);
-                draw_new_car(a,WHITE, count);
-                draw_new_car(30, BLUE, count);
-                draw_new_car(240, ROAD_GREY, count);
-                count = count + 1;
-            }
-
-            // if top == false
-            else {
-
-                // draw the top two full lines and the bottom line getting smaller
-                bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
-                // draw taxi
-                draw_taxi(x,y);
-                draw_new_car(a, WHITE, count);
-                draw_new_car(30, BLUE, count);
-                draw_new_car(240, ROAD_GREY, count);
-                x=x+1;
-                count = count + 1;
-            }
-
-            // wait for screen to refresh
-            wait_for_vsync();
-
-
-            // if top == true
-            if (top) {
-
-                // erases the top line growing gradually and the bottom two lines
-                top_coming(x1, x2, x3, y1, y2, y3, firstlength, BLACK);
-
-
-                // increases the starting positions of the bottom two lines
-                y2 = y2 + 1;
-                y3 = y3 + 1;
-
-                // increases the length of the first line for it to grow
-                firstlength = firstlength + 1;
-
-                // once y2 is 96, the top line is fully drawn and switch to bottom dissapearing
-                if (y2 == 96) {
-                    top = false;
-                } 
-            }
-
-            // if top == false
-            else {
-
-                // erases the top full lines and the bottom line getting smaller
-                bottom_disappearing(x1, x2, x3, y1, y2, y3, BLACK);
-
-                // increases the position of the lanes to move down
-                y1 = y1 + 1;
-                y2 = y2 + 1;
-                y3 = y3 + 1;
-
-
-                // once the bottom line disappears, restart by drawing the top line
-                if (y1 == 48) {
-                    top = true;
-                    y1 = 0;
-                    y2 = 48;
-                    y3 = 144;
-                    firstlength = 0;
-                }
-            }
-				// ADD STUFF HERE FOR KEY2
-				draw_line(0,80,319,80,0xFFFF);
-					
-				}
-			}
-
-        }
-    
-    return 0;
-}
-
-// Draws the background
-void background(){
-    // First pair of dotted lines
-    //draw_line(52, 48, 52, 96, 0xFFFF);
-    //draw_line(52, 144, 52, 192, 0xFFFF);
-
-    // First big lane
-    draw_line(103, 0, 103, 239, 0xFFFF);
-    draw_line(104, 0, 104, 239, 0xFFFF);
-    
-    // Second pair of dotted lines
-    //draw_line(156, 48, 156, 96, 0xFFFF);
-    //draw_line(156, 144, 156, 192, 0xFFFF);
-
-    // Second big lane
-    draw_line(209, 0, 209, 239, 0xFFFF);
-    draw_line(210, 0, 210, 239, 0xFFFF);
-    
-    // Third pair of dotted lines
-    //draw_line(262, 48, 262, 96, 0xFFFF);
-    //draw_line(262, 144, 262, 192, 0xFFFF);
-}
-
-
-void draw_taxi(int x, int y) {
-
-
-    // draws yellow base
-    draw_box(x+8, y+3, 17, 41, YELLOW);
-    draw_box(x+6, y+5, 2, 37, YELLOW);
-    draw_box(x+4, y+7, 2, 33, YELLOW);
-    draw_box(x+25, y+5, 2, 37, YELLOW);
-    draw_box(x+27, y+7, 2, 33, YELLOW);
-
-    // draws top half horizontal outlines
-    draw_horizontal_line(x+7, x+25, y+2, BLACK);
-    draw_horizontal_line(x+5, x+7, y+4, BLACK);
-    draw_horizontal_line(x+3, x+5, y+6, BLACK);
-    draw_horizontal_line(x+25, x+27, y+4, BLACK);
-    draw_horizontal_line(x+27, x+29, y+6, BLACK);
-
-    // draws bottom half horizontal outlines
-    draw_horizontal_line(x+3, x+5, y+40, BLACK);
-    draw_horizontal_line(x+5, x+7, y+42, BLACK);
-    draw_horizontal_line(x+7, x+25, y+44, BLACK);
-    draw_horizontal_line(x+27, x+29, y+40, BLACK);
-    draw_horizontal_line(x+25, x+27, y+42, BLACK);
-
-    // draws top vertical outlines
-    draw_vertical_line(x+7, y+2, y+4, BLACK);
-    draw_vertical_line(x+5, y+4, y+6, BLACK);
-    draw_vertical_line(x+25, y+2, y+4, BLACK);
-    draw_vertical_line(x+27, y+4, y+6, BLACK);
-
-    // draws side vertical outlines
-    draw_vertical_line(x+3, y+6, y+40, BLACK);
-    draw_vertical_line(x+29, y+6, y+40, BLACK);
-
-    // draws bottom half vertical outlines
-    draw_vertical_line(x+5, y+40, y+42, BLACK);
-    draw_vertical_line(x+7, y+42, y+44, BLACK);
-    draw_vertical_line(x+27, y+40, y+42, BLACK);
-    draw_vertical_line(x+25, y+42, y+44, BLACK);
-
-    // draw tires
-    draw_vertical_line(x+2, y+11, y+17, BLACK);
-    draw_vertical_line(x+30, y+11, y+17, BLACK);
-    draw_vertical_line(x+2, y+30, y+36, BLACK);
-    draw_vertical_line(x+30, y+30, y+36, BLACK);
-
-    // draw headlights white
-    draw_box(x+6, y+5, 2, 1, 0xFFFFFF);
-    draw_box(x+8, y+3, 1, 3, 0xFFFFFF);
-    draw_box(x+24, y+3, 1, 3, 0xFFFFFF);
-    draw_box(x+25, y+5, 2, 1, 0xFFFFFF);
-
-    // draw headlights outline
-    draw_vertical_line(x+9, y+3, y+6, BLACK);
-    draw_vertical_line(x+23, y+3, y+6, BLACK);
-    draw_horizontal_line(x+6, x+9, y+6, BLACK);
-    draw_horizontal_line(x+23, x+26, y+6, BLACK);
-
-    // draw license plate
-    draw_horizontal_line(x+14, x+18, y+3, BLUE);
-
-    // draw license plate outline
-    draw_vertical_line(x+13, y+3, y+4, BLACK);
-    draw_vertical_line(x+19, y+3, y+4, BLACK);
-    draw_horizontal_line(x+14, x+18, y+4, BLACK);
-
-    // draw front window
-    draw_horizontal_line(x+13, x+19, y+8, BLUE);
-    draw_horizontal_line(x+11, x+21, y+9, BLUE);
-    draw_box(x+9, y+10, 15, 4, BLUE);
-
-    // draw front window outline
-    draw_horizontal_line(x+12, x+20, y+7, BLACK);
-    draw_horizontal_line(x+10, x+12, y+8, BLACK);
-    draw_horizontal_line(x+8, x+10, y+9, BLACK);
-    draw_horizontal_line(x+20, x+22, y+8, BLACK);
-    draw_horizontal_line(x+22, x+24, y+9, BLACK);
-    draw_horizontal_line(x+8, x+24, y+14, BLACK);
-    draw_vertical_line(x+8, y+9, y+14, BLACK);
-    draw_vertical_line(x+24, y+9, y+14, BLACK);
-
-    // draw side windows
-    draw_vertical_line(x+4, y+18, y+27, BLUE);
-    draw_vertical_line(x+28, y+18, y+27, BLUE);
-
-    // draw side windows outlines
-    draw_vertical_line(x+5, y+18, y+27, BLACK);
-    draw_vertical_line(x+27, y+18, y+27, BLACK);
-    draw_horizontal_line(x+4, x+5, y+17, BLACK);
-    draw_horizontal_line(x+27, x+28, y+17, BLACK);
-    draw_horizontal_line(x+4, x+5, y+28, BLACK);
-    draw_horizontal_line(x+27, x+28, y+28, BLACK);
-
-    // draw back window
-    draw_horizontal_line(x+9, x+23, y+34, BLUE);
-    draw_horizontal_line(x+11, x+21, y+37, BLUE);
-    draw_box(x+10, y+35, 13, 2, BLUE);
-
-
-    // draw back window outline
-    draw_horizontal_line(x+8, x+24, y+33, BLACK);
-    draw_horizontal_line(x+10, x+22, y+38, BLACK);
-    draw_vertical_line(x+8, y+33, y+35, BLACK);
-    draw_vertical_line(x+24, y+33, y+35, BLACK);
-    draw_vertical_line(x+9, y+35, y+37, BLACK);
-    draw_vertical_line(x+23, y+35, y+37, BLACK);
-    draw_vertical_line(x+10, y+37, y+38, BLACK);
-    draw_vertical_line(x+22, y+37, y+38, BLACK);
-
-    // draw middle box outline
-    draw_horizontal_line(x+10, x+22, y+19, BLACK);
-    draw_horizontal_line(x+10, x+22, y+26, BLACK);
-    draw_vertical_line(x+10, y+19, y+26, BLACK);
-    draw_vertical_line(x+22, y+19, y+26, BLACK);
-
-    // draw letter T
-    draw_horizontal_line(x+14, x+18, y+21, BLACK);
-    draw_vertical_line(x+16, y+21, y+24, BLACK);
-}
-
-void draw_car(int x, int y, short int colour) {
-
-    //draws yellow base
-    draw_box(x+8, y+3, 17, 41, colour);
-    draw_box(x+6, y+5, 2, 37, colour);
-    draw_box(x+4, y+7, 2, 33, colour);
-    draw_box(x+25, y+5, 2, 37, colour);
-    draw_box(x+27, y+7, 2, 33, colour);
-
-    // draws top half horizontal outlines
-    draw_horizontal_line(x+7, x+25, y+2, BLACK);
-    draw_horizontal_line(x+5, x+7, y+4, BLACK);
-    draw_horizontal_line(x+3, x+5, y+6, BLACK);
-    draw_horizontal_line(x+25, x+27, y+4, BLACK);
-    draw_horizontal_line(x+27, x+29, y+6, BLACK);
-
-    // draws bottom half horizontal outlines
-    draw_horizontal_line(x+3, x+5, y+40, BLACK);
-    draw_horizontal_line(x+5, x+7, y+42, BLACK);
-    draw_horizontal_line(x+7, x+25, y+44, BLACK);
-    draw_horizontal_line(x+27, x+29, y+40, BLACK);
-    draw_horizontal_line(x+25, x+27, y+42, BLACK);
-
-    // draws top vertical outlines
-    draw_vertical_line(x+7, y+2, y+4, BLACK);
-    draw_vertical_line(x+5, y+4, y+6, BLACK);
-    draw_vertical_line(x+25, y+2, y+4, BLACK);
-    draw_vertical_line(x+27, y+4, y+6, BLACK);
-
-    // draws side vertical outlines
-    draw_vertical_line(x+3, y+6, y+40, BLACK);
-    draw_vertical_line(x+29, y+6, y+40, BLACK);
-
-    // draws bottom half vertical outlines
-    draw_vertical_line(x+5, y+40, y+42, BLACK);
-    draw_vertical_line(x+7, y+42, y+44, BLACK);
-    draw_vertical_line(x+27, y+40, y+42, BLACK);
-    draw_vertical_line(x+25, y+42, y+44, BLACK);
-
-    // draw tires
-    draw_vertical_line(x+2, y+11, y+17, BLACK);
-    draw_vertical_line(x+30, y+11, y+17, BLACK);
-    draw_vertical_line(x+2, y+30, y+36, BLACK);
-    draw_vertical_line(x+30, y+30, y+36, BLACK);
-
-    // draw headlights white
-    draw_box(x+6, y+5, 2, 1, 0xFFFFFF);
-    draw_box(x+8, y+3, 1, 3, 0xFFFFFF);
-    draw_box(x+24, y+3, 1, 3, 0xFFFFFF);
-    draw_box(x+25, y+5, 2, 1, 0xFFFFFF);
-
-    // draw headlights outline
-    draw_vertical_line(x+9, y+3, y+6, BLACK);
-    draw_vertical_line(x+23, y+3, y+6, BLACK);
-    draw_horizontal_line(x+6, x+9, y+6, BLACK);
-    draw_horizontal_line(x+23, x+26, y+6, BLACK);
-
-    // draw license plate
-    draw_horizontal_line(x+14, x+18, y+3, BLUE);
-
-    // draw license plate outline
-    draw_vertical_line(x+13, y+3, y+4, BLACK);
-    draw_vertical_line(x+19, y+3, y+4, BLACK);
-    draw_horizontal_line(x+14, x+18, y+4, BLACK);
-
-    // draw front window
-    draw_horizontal_line(x+13, x+19, y+8, BLUE);
-    draw_horizontal_line(x+11, x+21, y+9, BLUE);
-    draw_box(x+9, y+10, 15, 4, BLUE);
-
-    // draw front window outline
-    draw_horizontal_line(x+12, x+20, y+7, BLACK);
-    draw_horizontal_line(x+10, x+12, y+8, BLACK);
-    draw_horizontal_line(x+8, x+10, y+9, BLACK);
-    draw_horizontal_line(x+20, x+22, y+8, BLACK);
-    draw_horizontal_line(x+22, x+24, y+9, BLACK);
-    draw_horizontal_line(x+8, x+24, y+14, BLACK);
-    draw_vertical_line(x+8, y+9, y+14, BLACK);
-    draw_vertical_line(x+24, y+9, y+14, BLACK);
-
-    // draw side windows
-    draw_vertical_line(x+4, y+18, y+27, BLUE);
-    draw_vertical_line(x+28, y+18, y+27, BLUE);
-
-    // draw side windows outlines
-    draw_vertical_line(x+5, y+18, y+27, BLACK);
-    draw_vertical_line(x+27, y+18, y+27, BLACK);
-    draw_horizontal_line(x+4, x+5, y+17, BLACK);
-    draw_horizontal_line(x+27, x+28, y+17, BLACK);
-    draw_horizontal_line(x+4, x+5, y+28, BLACK);
-    draw_horizontal_line(x+27, x+28, y+28, BLACK);
-
-    // draw back window
-    draw_horizontal_line(x+9, x+23, y+34, BLUE);
-    draw_horizontal_line(x+11, x+21, y+37, BLUE);
-    draw_box(x+10, y+35, 13, 2, BLUE);
-
-    // draw back window outline
-    draw_horizontal_line(x+8, x+24, y+33, BLACK);
-    draw_horizontal_line(x+10, x+22, y+38, BLACK);
-    draw_vertical_line(x+8, y+33, y+35, BLACK);
-    draw_vertical_line(x+24, y+33, y+35, BLACK);
-    draw_vertical_line(x+9, y+35, y+37, BLACK);
-    draw_vertical_line(x+23, y+35, y+37, BLACK);
-    draw_vertical_line(x+10, y+37, y+38, BLACK);
-    draw_vertical_line(x+22, y+37, y+38, BLACK);
-
-}
-
-// Series of strings that are displayed at the start screen
-void start_message(){
-   char* first_string = "Crazy Taxi";
-   int x = 153;
-   while (*first_string) {
-     write_char(x, 20, *first_string);
-     x++;
-     first_string++;
-   }
-    
-   char* second_string = "Created by: Shadman and Abdurrafay";
-   x = 153;
-   while (*second_string) {
-     write_char(x, 22, *second_string);
-     x++;
-     second_string++;
-   }
-    
-   char* third_string = "Winter 2020 ECE243";
-   x = 153;
-   while (*third_string) {
-     write_char(x, 24, *third_string);
-     x++;
-     third_string++;
-   }
-    
-   char* fourth_string = "KEY2 = Left, KEY1 = Right";
-   x = 153;
-   while (*fourth_string) {
-     write_char(x, 28, *fourth_string);
-     x++;
-     fourth_string++;
-   }
-    
-   char* fifth_string = "Space to Stop";
-   x = 153;
-   while (*fifth_string) {
-     write_char(x, 30, *fifth_string);
-     x++;
-     fifth_string++;
-   }
-    
-   char* sixth_string = "Press KEY0 to Continue...";
-   x = 153;
-   while (*sixth_string) {
-     write_char(x, 32, *sixth_string);
-     x++;
-     sixth_string++;
-   }
-    
-   char* seventh_string = "Remember to set breakpoint at EXIT";
-   x = 153;
-   while (*seventh_string) {
-     write_char(x, 34, *seventh_string);
-     x++;
-     seventh_string++;
-   }
-}
-
-//Used to swap the values of x and y when requires in draw_line function
-void swap(int *x, int *y){
-    int temp = *x;
-    *x = *y;
-    *y = temp;   
-}
-
-// Used to write the character
-void write_char(int x, int y, char c) {
-  // VGA character buffer
-  volatile char * character_buffer = (char *) (0xc9000000 + (y<<7) + x);
-  *character_buffer = c;
-}
-
-// Clears the character and pixel buffer on the screen
-void clear_screen() {
-    int x, y;
-    for (x = 0; x < 320; x++){
-        for (y = 0; y < 240; y++){
-            plot_pixel(x, y, 0x0000);
-        }
-    }
-    
-    for (x = 0; x < 80; x++){
-        for (y = 0; y < 60; y++){
-            write_char(x, y, ' ');
-        }
-    }
-}
-
-// function to sync entire screen
-void wait_for_vsync(){
-
-    // buffer register
-    volatile int *pixel_ctr_ptr= (int*)0xFF203020;
-    register int status;
-
-    *pixel_ctr_ptr=1; // start sync process
-    
-    // status equals 0 when full screen done
-    status = *(pixel_ctr_ptr + 3);
-    while ((status & 0x01) !=0){
-        status= *(pixel_ctr_ptr +3);
-    }
-}
-
-// function to draw a line
-void draw_horizontal_line(int x0, int x1, int y, short int colour){
-        
-    // go through all x points for that line, y stays same, plot
-    for(int x=x0;x<x1+1; ++x){
-        plot_pixel(x,y,colour);
-    }
-}
-
-// function to draw a line
-void draw_vertical_line(int x, int y0, int y1, short int colour){
-        
-    // go through all x points for that line, y stays same, plot
-    for(int y=y0;y<y1+1; ++y){
-        plot_pixel(x,y,colour);
-    }
-}
-
-
-void plot_pixel(int x, int y, short int line_color){
-    *(short int*)(pixel_buffer_start + (y << 10) + (x << 1)) = line_color;
-}
-
-// Draw a box at (x,y) location
-void draw_box(int x, int y, int width, int length, short int color){
-    for(int i = y; i < y+length ; ++i)
-        for (int j = x; j < x+width ; ++j)
-        plot_pixel(j, i, color);
-}   
-
-void draw_line(int x0, int y0, int x1, int y1, short int color){
-    bool is_steep = abs(y1 - y0) > abs(x1 - x0);
-
-    if (is_steep){
-        swap(&x0, &y0);
-        swap(&x1, &y1);
-    }
-
-    if (x0 > x1){
-        swap(&x0, &x1);
-        swap(&y0, &y1);
-    }
-
-    int deltax = x1 - x0;
-    int deltay = y1 - y0;
-
-    if (deltay < 0){
-        deltay = -deltay;
-    }
-
-    //The error variable takes into account the relative difference between 
-    //the width (deltax) and height of the line (deltay) in deciding how often y 
-    //should beincremented. 
-    int error = -(deltax / 2);
-
-    int y = y0;
-    int y_step;
-
-    if (y0 < y1){
-        y_step = 1;
-    }
-
-    else{
-        y_step = -1;
-    }
-
-    for (int x = x0; x <= x1; x++){
-        if (is_steep){
-            plot_pixel(y, x, color);
-        }
-        else{
-            plot_pixel(x, y, color);
-        }
-
-        error = error + deltay;
-
-        if (error >= 0){
-            y = y + y_step;
-            error = error - deltax;
-        }
-    }
-}
-
-/* setup the KEY interrupts in the FPGA */
-void config_KEYs() {
-    volatile int * KEY_ptr = (int *) 0xFF200050; // pushbutton KEY base address
-    *(KEY_ptr + 2) = 0xF; // enable interrupts for the two KEYs
-}
-
-void pushbutton_ISR(void);
-void config_interrupt(int, int);
-
-// Define the IRQ exception handler
-void __attribute__((interrupt)) __cs3_isr_irq(void) {
-
-    // Read the ICCIAR from the CPU Interface in the GIC
-    int interrupt_ID = *((int *)0xFFFEC10C);
-
-    if (interrupt_ID == 73) // check if interrupt is from the KEYs
-    pushbutton_ISR();
-        else {
-    while (1); // if unexpected, then stay here
-    }
-            
-    // Write to the End of Interrupt Register (ICCEOIR)
-    *((int *)0xFFFEC110) = interrupt_ID;
-}
-
-// Define the remaining exception handlers
-void __attribute__((interrupt)) __cs3_reset(void) {
-    while (1);
-}
-
-void __attribute__((interrupt)) __cs3_isr_undef(void) {
-    while (1);
-}
-
-void __attribute__((interrupt)) __cs3_isr_swi(void) {
-    while (1);
-}
-
-void __attribute__((interrupt)) __cs3_isr_pabort(void) {
-    while (1);
-}
-
-void __attribute__((interrupt)) __cs3_isr_dabort(void) {
-    while (1);
-}
-
-void __attribute__((interrupt)) __cs3_isr_fiq(void) {
-    while (1);
-}
-
-/*
-* Turn off interrupts in the ARM processor
-*/
-void disable_A9_interrupts(void) {
-    int status = 0b11010011;
-    asm("msr cpsr, %[ps]" : : [ps] "r"(status));
-}
-
-/*
-* Initialize the banked stack pointer register for IRQ mode
-*/
-void set_A9_IRQ_stack(void) {
-    int stack, mode;
-    stack = 0xFFFFFFFF - 7; // top of A9 onchip memory, aligned to 8 bytes
-    /* change processor to IRQ mode with interrupts disabled */
-    mode = 0b11010010;
-    asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
-    /* set banked stack pointer */
-    asm("mov sp, %[ps]" : : [ps] "r"(stack));
-        /* go back to SVC mode before executing subroutine return! */
-    mode = 0b11010011;
-    asm("msr cpsr, %[ps]" : : [ps] "r"(mode));
-}
-
-/*
-* Turn on interrupts in the ARM processor
-*/
-void enable_A9_interrupts(void) {
-    int status = 0b01010011;
-    asm("msr cpsr, %[ps]" : : [ps] "r"(status));
-}
-
-/*
-* Configure the Generic Interrupt Controller (GIC)
-*/
-void config_GIC(void) {
-    config_interrupt (73, 1); // configure the FPGA KEYs interrupt (73)
-    // Set Interrupt Priority Mask Register (ICCPMR). Enable interrupts of all
-    // priorities
-    *((int *) 0xFFFEC104) = 0xFFFF;
-    // Set CPU Interface Control Register (ICCICR). Enable signaling of interrupts
-    *((int *) 0xFFFEC100) = 1;
-    // Configure the Distributor Control Register (ICDDCR) to send pending interrupts to CPUs
-    *((int *) 0xFFFED000) = 1;
-}
-
-/*
-* Configure Set Enable Registers (ICDISERn) and Interrupt Processor Target
-* Registers (ICDIPTRn). The default (reset) values are used for other registers
-* in the GIC.
-*/
-void config_interrupt(int N, int CPU_target) {
-    int reg_offset, index, value, address;
-    /* Configure the Interrupt Set-Enable Registers (ICDISERn).
-    * reg_offset = (integer_div(N / 32) * 4
-    * value = 1 << (N mod 32) */
-    reg_offset = (N >> 3) & 0xFFFFFFFC;
-    index = N & 0x1F;
-    value = 0x1 << index;
-    address = 0xFFFED100 + reg_offset;
-    /* Now that we know the register address and value, set the appropriate bit */
-    *(int *)address |= value;
-    /* Configure the Interrupt Processor Targets Register (ICDIPTRn)
-    * reg_offset = integer_div(N / 4) * 4
-    * index = N mod 4 */
-    reg_offset = (N & 0xFFFFFFFC);
-    index = N & 0x3;
-    address = 0xFFFED800 + reg_offset + index;
-    /* Now that we know the register address and value, write to (only) the
-    * appropriate byte */
-    *(char *)address = (char)CPU_target;
 }
