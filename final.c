@@ -712,7 +712,7 @@ void start_message(){
      fourth_string++;
    }
     
-   char* fifth_string = "Space to Stop";
+   char* fifth_string = "Avoid the cars for a higher score!";
    x = 153;
    while (*fifth_string) {
      write_char(x, 30, *fifth_string);
