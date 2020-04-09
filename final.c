@@ -140,12 +140,21 @@ int main(void){
                     x_pos2++;
                     second_lose_string++;
                 }
+				
+				// Print fourth lose statement
+                char* fourth_lose_string = "Your score is displayed on the HEX";
+                int x_pos4 = 155;
+                while (*fourth_lose_string) {
+                    write_char(x_pos4, 28, *fourth_lose_string);
+                    x_pos4++;
+                    fourth_lose_string++;
+                }
                 
                 // Print third lose statement
-                char* third_lose_string = "Press KEY0 to restart the game";
+                char* third_lose_string = "Press KEY0 to restart the game...";
                 int x_pos3 = 155;
                 while (*third_lose_string) {
-                    write_char(x_pos3, 28, *third_lose_string);
+                    write_char(x_pos3, 30, *third_lose_string);
                     x_pos3++;
                     third_lose_string++;
                 }   
