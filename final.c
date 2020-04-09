@@ -102,7 +102,7 @@ int main(void){
         int firstlength = 0;
 
         // sets inital position for the taxi
-        int x = 10;
+        int x = 142;
         int y = 175;
 
         // start off with the top coming down
@@ -150,24 +150,8 @@ int main(void){
                     third_lose_string++;
                 }   
 				
-				// Print fourth lose statement
-				char* fourth_lose_string = "Your score is: ";
-				int x_pos5 = 155;
-                while (*fourth_lose_string) {
-                    write_char(x_pos5, 30, *fourth_lose_string);
-                    x_pos5++;
-                    fourth_lose_string++;
-                }   
-				
-				// Print fourth lose statement
-				char* score;
-				sprintf(score, "%d", final_score);
-				int x_pos4 = 170;
-                while (*score) {
-                    write_char(x_pos4, 30, *score);
-                    x_pos4++;
-                    score++;
-                }   
+				// HEX PTR COUNTER HERE
+ 
                 
                 while (!key0Press) {
                     ;
@@ -188,7 +172,7 @@ int main(void){
                 firstlength = 0;
 
                 // sets inital position for the taxi
-                x = 10;
+                x = 142;
                 y = 175;
 
                 // start off with the top coming down
