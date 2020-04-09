@@ -150,15 +150,109 @@ int main(void){
                     third_lose_string++;
                 }   
 				
-				// HEX PTR COUNTER HERE
- 
+				// HEX display for the score
+ 				volatile int *HEX_ptr = (int *) (0xFF200020); 
+				volatile int *HEX_ptr1 = (int *) (0xFF200030);
+				
+				// Use modulos and division to get each digit from the final score
+				int zeroHEX = final_score % 10;
+				int firstHEX = final_score % 100 / 10;
+				int secondHEX = final_score % 1000 / 100;
+				int thirdHEX = final_score % 10000 / 1000;
+				int fourthHEX = final_score % 100000 / 10000;
+				int fifthHEX = final_score % 1000000 / 100000;
+				
+				// Create character arrays for HEX3-0 and HEX5-4 display
+				unsigned char HEX_segs[] = {0, 0, 0};
+				unsigned char HEX_segs1[] = {0, 0};
+				
+				// Use switch statements to assign the values for HEX display
+				switch(zeroHEX){
+					case 0 : HEX_segs[0] = 0x3F; break;
+        			case 1 : HEX_segs[0] = 0x06; break;
+        			case 2 : HEX_segs[0] = 0x5B; break;
+       			    case 3 : HEX_segs[0] = 0x4F; break;
+        			case 4 : HEX_segs[0] = 0x66; break;
+        			case 5 : HEX_segs[0] = 0x6D; break;
+        			case 6 : HEX_segs[0] = 0x7D; break;
+        			case 7 : HEX_segs[0] = 0x07; break;
+        			case 8 : HEX_segs[0] = 0x7F; break;
+        			case 9 : HEX_segs[0] = 0x67; break;
+				}
+				
+				switch(firstHEX){
+					case 0 : HEX_segs[1] = 0x3F; break;
+        			case 1 : HEX_segs[1] = 0x06; break;
+        			case 2 : HEX_segs[1] = 0x5B; break;
+       			    case 3 : HEX_segs[1] = 0x4F; break;
+        			case 4 : HEX_segs[1] = 0x66; break;
+        			case 5 : HEX_segs[1] = 0x6D; break;
+        			case 6 : HEX_segs[1] = 0x7D; break;
+        			case 7 : HEX_segs[1] = 0x07; break;
+        			case 8 : HEX_segs[1] = 0x7F; break;
+        			case 9 : HEX_segs[1] = 0x67; break;
+				}
+				
+				switch(secondHEX){
+					case 0 : HEX_segs[2] = 0x3F; break;
+        			case 1 : HEX_segs[2] = 0x06; break;
+        			case 2 : HEX_segs[2] = 0x5B; break;
+       			    case 3 : HEX_segs[2] = 0x4F; break;
+        			case 4 : HEX_segs[2] = 0x66; break;
+        			case 5 : HEX_segs[2] = 0x6D; break;
+        			case 6 : HEX_segs[2] = 0x7D; break;
+        			case 7 : HEX_segs[2] = 0x07; break;
+        			case 8 : HEX_segs[2] = 0x7F; break;
+        			case 9 : HEX_segs[2] = 0x67; break;
+				}
+				
+				switch(thirdHEX){
+					case 0 : HEX_segs[3] = 0x3F; break;
+        			case 1 : HEX_segs[3] = 0x06; break;
+        			case 2 : HEX_segs[3] = 0x5B; break;
+       			    case 3 : HEX_segs[3] = 0x4F; break;
+        			case 4 : HEX_segs[3] = 0x66; break;
+        			case 5 : HEX_segs[3] = 0x6D; break;
+        			case 6 : HEX_segs[3] = 0x7D; break;
+        			case 7 : HEX_segs[3] = 0x07; break;
+        			case 8 : HEX_segs[3] = 0x7F; break;
+        			case 9 : HEX_segs[3] = 0x67; break;
+				}
+				
+				switch(fourthHEX){
+					case 0 : HEX_segs1[0] = 0x3F; break;
+        			case 1 : HEX_segs1[0] = 0x06; break;
+        			case 2 : HEX_segs1[0] = 0x5B; break;
+       			    case 3 : HEX_segs1[0] = 0x4F; break;
+        			case 4 : HEX_segs1[0] = 0x66; break;
+        			case 5 : HEX_segs1[0] = 0x6D; break;
+        			case 6 : HEX_segs1[0] = 0x7D; break;
+        			case 7 : HEX_segs1[0] = 0x07; break;
+        			case 8 : HEX_segs1[0] = 0x7F; break;
+        			case 9 : HEX_segs1[0] = 0x67; break;
+				}
+				
+				switch(fifthHEX){
+					case 0 : HEX_segs1[1] = 0x3F; break;
+        			case 1 : HEX_segs1[1] = 0x06; break;
+        			case 2 : HEX_segs1[1] = 0x5B; break;
+       			    case 3 : HEX_segs1[1] = 0x4F; break;
+        			case 4 : HEX_segs1[1] = 0x66; break;
+        			case 5 : HEX_segs1[1] = 0x6D; break;
+        			case 6 : HEX_segs1[1] = 0x7D; break;
+        			case 7 : HEX_segs1[1] = 0x07; break;
+        			case 8 : HEX_segs1[1] = 0x7F; break;
+        			case 9 : HEX_segs1[1] = 0x67; break;
+				}
+
+				*HEX_ptr =  *(int *)(HEX_segs);
+				*HEX_ptr1 = *(int *)(HEX_segs1);
                 
                 while (!key0Press) {
                     ;
                 } //poll
                 
                 key0Press = false;
-
         
                 // sets initial variables for the lanes
                 x1 = 52;
