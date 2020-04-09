@@ -22,14 +22,13 @@ void bottom_disappearing(int x1, int x2, int x3, int firsty, int secondy, int th
 void draw_new_car(int x, short int colour, int count);
 bool crash(int a, int b, int c, int count, int x);
 
-// colours - green for points, pink for lines
+// Colours initialization making it easier to pass into functions
 short int BLACK = 0x00000; 
 short int YELLOW = 0xFFF700;
 short int WHITE = 0xFFFFFF;
 short int BLUE = 0x0055FF;
 short int ROAD_GREY = 0x1FA244;
 short int RED = 0xF3F4D0;
-
 
 // Interrupt functions
 void disable_A9_interrupts(void);
@@ -38,9 +37,7 @@ void config_GIC(void);
 void config_KEYs(void);
 void enable_A9_interrupts(void);
 
-
-
-// Create global booleans
+// Create global volatile booleans
 volatile bool key0Press = false;
 volatile bool carMoveRight = false;
 volatile bool carMoveLeft = false;
@@ -667,7 +664,6 @@ int main(void){
         } 
     return 0;
 }
-
 
 /********************************************************************
 * Pushbutton - Interrupt Service Routine
@@ -11235,8 +11231,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 272) {
@@ -11292,8 +11286,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 273) {
@@ -11343,8 +11335,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 274) {
@@ -11388,8 +11378,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 275) {
@@ -11427,8 +11415,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 276) {
@@ -11460,8 +11446,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 277) {
@@ -11488,8 +11472,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 278) {
@@ -11512,8 +11494,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 279) {
@@ -11532,8 +11512,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 280) {
@@ -11548,8 +11526,6 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 281) {
@@ -11560,21 +11536,10 @@ void draw_new_car(int x, short int colour, int count) {
 
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
     }
 
     else if (count == 282) {
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
-
-        // row 45
-    }
-
-    else if (count == 283) {
-        // row 45
-    }
-    else {
-
     }
 }
