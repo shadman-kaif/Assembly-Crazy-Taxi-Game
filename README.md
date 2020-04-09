@@ -1,10 +1,11 @@
 # Crazy-Taxi-Game
 
 How To Play the Game:
- * Copy the code and paste it in Cpulator (https://cpulator.01xz.net/?sys=arm-de1soc), change the setting to C, compile & load and press continue
+ * Go to Cpulator (https://cpulator.01xz.net/?sys=arm-de1soc), change the setting to C, copy the code and paste it the final.c code,  compile & load and press continue
 
-Displayed will be the start screen on how to play
-Press KEY0 to continue
+* Displayed will be the start screen on how to play
+
+ * Press KEY0 to continue
 Add breakpoint at the first statement in EXIT in the disassembly
 Press continue
 Use KEY1 and KEY2 to control the taxi to avoid the incoming randomized obstacles in the form of other cars*
