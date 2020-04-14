@@ -19,4 +19,4 @@ How To Play the Game:
 
 * Once crashed, a lose screen will appear automatically 
 
-* Press KEY0 again to leave the lose screen and restart the game (your score is displayed on the HEX)
+* Press KEY0 again to leave the lose screen and restart the game (your score is displayed on the 7 seg HEX display)
