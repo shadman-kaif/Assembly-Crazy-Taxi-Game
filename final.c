@@ -11539,6 +11539,7 @@ void draw_new_car(int x, short int colour, int count) {
     }
 
     else if (count == 282) {
+	    
         // row 44
         draw_horizontal_line(x+7, x+25, count-43, BLACK);
     }
