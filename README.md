@@ -7,8 +7,6 @@ How To Play the Game:
 
 * Press KEY0 to continue
 
-* Add breakpoint at the first statement in EXIT in the disassembly
-
 * Press continue
 
 * Use KEY1 and KEY2 to control the taxi to avoid the incoming randomized obstacles in the form of other cars
