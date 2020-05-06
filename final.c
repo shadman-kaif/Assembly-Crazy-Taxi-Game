@@ -410,7 +410,7 @@ int main(void){
                     // if top == true
                     if (top) {
 
-                        x = x + 1;
+                        x = x + 5;
 
                         // draw the top line growing gradually and the bottom two lines
                         top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
@@ -451,7 +451,7 @@ int main(void){
                         // draw the top two full lines and the bottom line getting smaller
                         bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
                         
-                        x = x + 1;
+                        x = x + 5;
 
                         draw_taxi(x,y);
 
@@ -544,7 +544,7 @@ int main(void){
                         // draw the top line growing gradually and the bottom two lines
                         top_coming(x1, x2, x3, y1, y2, y3, firstlength, WHITE);
 
-                        x = x - 1;
+                        x = x - 5;
                         draw_taxi(x,y);
 
                         draw_new_car(a,WHITE, count);
@@ -581,7 +581,7 @@ int main(void){
                         // draw the top two full lines and the bottom line getting smaller
                         bottom_disappearing(x1, x2, x3, y1, y2, y3, WHITE);
 
-                        x = x - 1;
+                        x = x - 5;
                         draw_taxi(x,y);
 
                         draw_new_car(a, WHITE, count);
