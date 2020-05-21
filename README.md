@@ -1,5 +1,7 @@
 # Crazy-Taxi-Game
 
+Made by: Shadman Kaif & Abdurrafay Khan (https://github.com/abdurrafaykhan)
+
 How To Play the Game:
 
 * Go to Cpulator (https://cpulator.01xz.net/?sys=arm-de1soc), change the setting to C, copy the final.c code,  compile & load and press continue
