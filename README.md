@@ -1,6 +1,7 @@
 # Crazy-Taxi-Game
 
 How To Play the Game:
+
 * Go to Cpulator (https://cpulator.01xz.net/?sys=arm-de1soc), change the setting to C, copy the final.c code,  compile & load and press continue
 
 * Displayed will be the start screen on how to play
